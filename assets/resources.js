@@ -45,7 +45,8 @@ let resources = {
     },
     "2-3": {
         title: "Shelf",
-        message: "There appears to be a number of items on this shelf...",
+        message:
+            "There appears to be a number of items on this shelf...\n\n(Get 2-2, 2-6, 2-7, 2-8, 2-9)",
     },
     "2-4": {
         title: "Janitor Closet",
@@ -125,6 +126,10 @@ let resources = {
     "2-10+2-14": {
         title: "Opening the vent cover",
         message: "Now it's open... \n\n(Get 2-18)",
+    },
+    "2-8+2-17": {
+        title: "Whacking the tool box open",
+        message: "There's a key inside, but there's no locks...\n\n(Get 2-16)",
     },
     level3: {
         title: "The apartment room after the vent",
