@@ -133,7 +133,8 @@ let resources = {
   },
   level3: {
     title: "The apartment room after the vent",
-    message: "Looks like someone's room... \n\n(Get )",
+    message:
+      "This doesn't look like my apartment. I think. Luckily it doesn't sound like anyone's home.\n\n(Get 3-21, 3-18)",
   },
   "3-1": {
     title: "Office Door",
@@ -146,20 +147,22 @@ let resources = {
   },
   "3-3": {
     title: "Open Window",
-    message: "If I reach I think I can climb through that window",
+    message: "If I reach I think I can climb through that window\n\n(Get 3-8)",
   },
   "3-4": {
     title: "Disheveled Desk",
     message:
       "I can’t decipher this chicken scratch at all. Whatever they were doing, it looks like they were really dedicated to it",
   },
-  "3-5": {
+  //3-5
+  "3-11 + 3-19": {
     title: "Balcony",
-    message: "Ugh, I hate heights. Makes my stomach turn",
+    message: "Ugh, I hate heights. Makes my stomach turn\n\n(Get 3-3, 3-7)",
   },
-  "3-6": {
+  //3-6
+  "3-7 + 3-10": {
     title: "Means of Egress (sheets over railing)",
-    message: "God, am I really doing this?",
+    message: "God, am I really doing this?\n\n(Unlock Level 3)",
   },
   "3-7": {
     title: "Railing",
@@ -169,13 +172,14 @@ let resources = {
   "3-8": {
     title: "Bedroom",
     message:
-      "This bedroom is so neat it feels untouched. Like no one has lived here in years.",
+      "This bedroom is so neat it feels untouched. Like no one has lived here in years.\n\n(Get 3-12, 3-17)",
   },
   "3-9": {
     title: "Bedroom Door",
     message: "It's locked...",
   },
-  "3-10": {
+  //3-10
+  "3.12 + 3.16 + 3.20": {
     title: "Blanket Ladder",
     message: "I think that should hold.",
   },
@@ -188,13 +192,14 @@ let resources = {
     message:
       "Usually, I'd hate to ruin such a neatly-made bed. I'm sure whoever lives here will understand.",
   },
-  "3-13": {
+  //3-13
+  "3-1 + 3-15": {
     title: "Office",
-    message: "Wow, it's a mess in here",
+    message: "Wow, it's a mess in here\n\n(Get 3-13, 3-16)",
   },
   "3-14": {
     title: "Fridge",
-    message: "Ah, there's a note here",
+    message: "Ah, there's a note here\n\n(Get 3-2)",
   },
   "3-15": {
     title: "Key",
@@ -202,16 +207,16 @@ let resources = {
   },
   "3-16": {
     title: "Pillow + Blanket",
-    message: "I see why the bedroom was so neat, they never slept there.",
+    message: "I guess that explains why the bedroom is so neat.",
   },
   "3-17": {
     title: "Dresser",
-    message: "Aha, there's a key here",
+    message: "Aha, there's a key here\n\n(Get 3-15)",
   },
   "3-18": {
     title: "Kitchenette",
     message:
-      "It's appointed well-enough. Wonder if there's anything around here to help me get out.",
+      "It's appointed well enough. Wonder if there's anything around here to help me get out.\n\n(Get 3-11, 3-14)",
   },
   "3-19": {
     title: "Sliding Glass Door",
@@ -224,7 +229,7 @@ let resources = {
   "3-21": {
     title: "Living Room",
     message:
-      "This doesn't look like my apartment. I think. Luckily it sounds like no one's home.",
+      "Much tidier than my apartment, certainly. And the view is much better.\n\n(Get 3-1, 3-9, 3-19, 3-20)",
   },
 };
 
