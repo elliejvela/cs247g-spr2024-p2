@@ -34,6 +34,9 @@ export default function Index() {
       InvalidCombo: await Audio.Sound.createAsync(
         require("../assets/sounds/InvalidCombo.mp3")
       ),
+      StartupSound: await Audio.Sound.createAsync(
+        require("../assets/sounds/StartupSound.mp3")
+      ),
     };
 
     const { sound } = level_1_sounds[soundName];
