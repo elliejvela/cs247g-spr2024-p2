@@ -5,7 +5,7 @@ export default function RootLayout() {
         <Drawer>
             <Drawer.Screen
                 name="index"
-                options={{ drawerLabel: "title", title: "title" }}
+                options={{ drawerLabel: "Descent", title: "Descent" }}
             />
         </Drawer>
     );
