@@ -109,6 +109,7 @@ let resources = {
   "2-18": {
     title: "A Way Up",
     message: "Let's see where this takes me... \n\n(Unlock Level 3)",
+    soundName: "VentCrawl",
   },
   "2-6+2-11": {
     title: "Adding Mulch to Boxes",

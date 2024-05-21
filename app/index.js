@@ -7,7 +7,8 @@ import {
   Button,
   TouchableOpacity,
 } from "react-native";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { Audio } from "expo-av";
 
 import { resources } from "../assets/resources.js"; // TODO: Add actual images and messages
 
@@ -22,6 +23,41 @@ export default function Index() {
   let [userCode, setUserCode] = useState("");
   let [codeSuccess, setCodeSuccess] = useState(false);
 
+  const [sound, setSound] = useState();
+
+  // play
+  async function playSound(soundName) {
+    level_1_sounds = {
+      VentCrawl: await Audio.Sound.createAsync(
+        require("../assets/sounds/VentCrawl.mp3")
+      ),
+      InvalidCombo: await Audio.Sound.createAsync(
+        require("../assets/sounds/InvalidCombo.mp3")
+      ),
+    };
+
+    const { sound } = level_1_sounds[soundName];
+    if (soundName === "") {
+      return;
+    } else if (sound != undefined) {
+      console.log("Playing Sound " + soundName);
+      setSound(sound);
+
+      await sound.playAsync();
+    } else {
+      console.log("invalid soundname");
+    }
+  }
+
+  useEffect(() => {
+    return sound
+      ? () => {
+          sound.unloadAsync();
+          console.log("Unloading Sound");
+        }
+      : undefined;
+  }, [sound]);
+
   const handleSubmission = () => {
     if (submitted) {
       setUserInput("");
@@ -35,6 +71,7 @@ export default function Index() {
     } else {
       let input = userInput.toLowerCase().replaceAll(" ", "");
       if (resources[input] !== undefined) {
+        playSound(resources[input].soundName);
         setMessage(resources[input].message);
         setCardTitle(resources[input].title);
 
@@ -46,6 +83,7 @@ export default function Index() {
           setRequiredCode(resources[input][interactionType]);
         }
       } else {
+        playSound("InvalidCombo");
         setMessage("Invalid card number");
       }
     }
@@ -82,7 +120,7 @@ export default function Index() {
             onPress={() => {
               if (userInput.toLowerCase() == "level 1") {
                 setBeginGame(true);
-
+                playSound("StartupSound");
                 handleSubmission();
               }
             }}
