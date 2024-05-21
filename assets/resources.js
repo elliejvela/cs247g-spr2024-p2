@@ -29,6 +29,10 @@ let resources = {
         message:
             "This art event seems similar to the poster I saw earlier... I wonder if they're related",
     },
+    level2: {
+        title: "From the roof to the janitor closet",
+        message: "After the roof is the janitor's closet... \n\n(Get 2-4)",
+    },
     "2-1": {
         title: "Boxes",
         message:
@@ -121,6 +125,10 @@ let resources = {
     "2-10+2-14": {
         title: "Opening the vent cover",
         message: "Now it's open... \n\n(Get 2-18)",
+    },
+    level3: {
+        title: "The apartment room after the vent",
+        message: "Looks like someone's room... \n\n(Get )",
     },
     "3-1": {
         title: "Office Door",
