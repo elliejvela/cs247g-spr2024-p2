@@ -13,7 +13,8 @@ let resources = {
     message: "The door is locked shut...if only I knew the combination",
     interaction: "code",
     code: "3617",
-    successMessage: "To the next floor... (Unlock Level 2)",
+    successMessage:
+      "To the next floor... (Unlock Level 2)\n\n(Type 'Level 2' in the first text box)",
   },
   "1-2": {
     title: "Poster",
@@ -31,7 +32,7 @@ let resources = {
   },
   level2: {
     title: "From the roof to the janitor closet",
-    message: "After the roof is the janitor's closet... \n\n(Get 2-4)",
+    message: "After the roof is the janitor's closet... \n\n(Get 2-4, 2-14)",
   },
   "2-1": {
     title: "Boxes",
@@ -51,7 +52,7 @@ let resources = {
   "2-4": {
     title: "Janitor Closet",
     message:
-      "A...janitor's closet? The only exit from the roof led me to a dead end?",
+      "A...janitor's closet? The only exit from the roof led me to a dead end? \n\n(Get 2-1, 2-3, 2-15, 2-17)",
   },
   "2-5": {
     title: "Reinforced Boxes",
