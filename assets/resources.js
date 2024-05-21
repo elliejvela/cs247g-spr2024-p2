@@ -162,7 +162,7 @@ let resources = {
   //3-6
   "3-7 + 3-10": {
     title: "Means of Egress (sheets over railing)",
-    message: "God, am I really doing this?\n\n(Unlock Level 3)",
+    message: "God, am I really doing this?\n\n(Unlock Level 4)",
   },
   "3-7": {
     title: "Railing",
