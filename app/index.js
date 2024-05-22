@@ -46,7 +46,7 @@ export default function Index() {
       console.log("Playing Sound " + soundName);
       setSound(sound);
 
-      await sound.playAsync();
+      //await sound.playAsync();
     } else {
       console.log("invalid soundname");
     }
@@ -72,8 +72,17 @@ export default function Index() {
       setInteractionType("");
       setUserCode("");
     } else {
+      //process user input for JSON lookup
       let input = userInput.toLowerCase().replaceAll(" ", "");
+      input = input.split("+");
+      // this sorts a string of numbers in numerical order rather than alphabetical order
+      input.sort(function (a, b) {
+        return a - b;
+      });
+      input = input.toString();
+
       if (resources[input] !== undefined) {
+        //process user input
         playSound(resources[input].soundName);
         setMessage(resources[input].message);
         setCardTitle(resources[input].title);

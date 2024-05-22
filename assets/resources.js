@@ -1,3 +1,4 @@
+// item combinations should be split by a comma e.g. "1-1, 1-2"
 let resources = {
   default: {
     message: "",
@@ -112,24 +113,24 @@ let resources = {
     message: "Let's see where this takes me... \n\n(Unlock Level 3)",
     soundName: "VentCrawl",
   },
-  "2-6+2-11": {
+  "2-6,2-11": {
     title: "Adding Mulch to Boxes",
     message: "This looks sturdy enough to stand on... \n\n(Get 2-5)",
   },
-  "2-3+2-14": {
+  "2-3,2-14": {
     title: "Breaking the shelf",
     message:
       "Hopefully they won't mind the broken shelf... \n\n(Get 2-12, 2-2, 2-6, 2-7, 2-8, 2-9)",
   },
-  "2-3+2-17": {
+  "2-3,2-17": {
     title: "Forcing the screwdriver set open",
     message: "I finally got this open... \n\n(Get 2-10)",
   },
-  "2-10+2-14": {
+  "2-10,2-14": {
     title: "Opening the vent cover",
     message: "Now it's open... \n\n(Get 2-18)",
   },
-  "2-8+2-17": {
+  "2-8,2-17": {
     title: "Whacking the tool box open",
     message: "There's a key inside, but there's no locks...\n\n(Get 2-16)",
   },
@@ -157,12 +158,12 @@ let resources = {
       "I can’t decipher this chicken scratch at all. Whatever they were doing, it looks like they were really dedicated to it",
   },
   //3-5
-  "3-11+3-19": {
+  "3-11,3-19": {
     title: "Balcony",
     message: "Ugh, I hate heights. Makes my stomach turn\n\n(Get 3-3, 3-7)",
   },
   //3-6
-  "3-7+3-10": {
+  "3-7,3-10": {
     title: "Means of Egress (sheets over railing)",
     message: "God, am I really doing this?\n\n(Unlock Level 4)",
   },
@@ -181,7 +182,7 @@ let resources = {
     message: "It's locked...",
   },
   //3-10
-  "3.12+3.16+3.20": {
+  "3.12,3.16,3.20": {
     title: "Blanket Ladder",
     message: "I think that should hold.",
   },
@@ -195,7 +196,7 @@ let resources = {
       "Usually, I'd hate to ruin such a neatly-made bed. I'm sure whoever lives here will understand.",
   },
   //3-13
-  "3-1+3-15": {
+  "3-1,3-15": {
     title: "Office",
     message: "Wow, it's a mess in here\n\n(Get 3-13, 3-16)",
   },
