@@ -42,7 +42,7 @@ let resources = {
     "2-1": {
         title: "Boxes",
         message:
-            "A bunch of cardboard boxes...I wonder if there's anything in them",
+            "A bunch of cardboard boxes...I wonder if there's anything in them\n\n(Get 2-13)",
     },
     "2-2": {
         title: "Empty Pots",
@@ -90,7 +90,7 @@ let resources = {
     },
     "2-12": { title: "Broken Shelf", message: "Agh! It wasn't stable enough" },
     "2-13": {
-        title: "",
+        title: "Sealed Screwdriver Set",
         message:
             "A screwdriver set, but its so rusty that I can't get it open with my bare hands. If only I had some tool...",
     },
