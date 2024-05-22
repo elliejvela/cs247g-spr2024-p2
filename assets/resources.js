@@ -157,12 +157,12 @@ let resources = {
       "I can’t decipher this chicken scratch at all. Whatever they were doing, it looks like they were really dedicated to it",
   },
   //3-5
-  "3-11 + 3-19": {
+  "3-11+3-19": {
     title: "Balcony",
     message: "Ugh, I hate heights. Makes my stomach turn\n\n(Get 3-3, 3-7)",
   },
   //3-6
-  "3-7 + 3-10": {
+  "3-7+3-10": {
     title: "Means of Egress (sheets over railing)",
     message: "God, am I really doing this?\n\n(Unlock Level 4)",
   },
@@ -181,7 +181,7 @@ let resources = {
     message: "It's locked...",
   },
   //3-10
-  "3.12 + 3.16 + 3.20": {
+  "3.12+3.16+3.20": {
     title: "Blanket Ladder",
     message: "I think that should hold.",
   },
@@ -195,7 +195,7 @@ let resources = {
       "Usually, I'd hate to ruin such a neatly-made bed. I'm sure whoever lives here will understand.",
   },
   //3-13
-  "3-1 + 3-15": {
+  "3-1+3-15": {
     title: "Office",
     message: "Wow, it's a mess in here\n\n(Get 3-13, 3-16)",
   },
@@ -208,7 +208,7 @@ let resources = {
     message: "This should come in handy",
   },
   "3-16": {
-    title: "Pillow + Blanket",
+    title: "Pillow and Blanket",
     message: "I guess that explains why the bedroom is so neat.",
   },
   "3-17": {
