@@ -59,7 +59,7 @@ let resources = {
     message: "Now these boxes aren't so flimsy anymore",
   },
   "2-6": {
-    title: "large Mulch Bags",
+    title: "Large Mulch Bags",
     message: "Mulch bags, but they're too malleable to stand on",
   },
   "2-7": {
@@ -69,7 +69,7 @@ let resources = {
   "2-8": {
     title: "Tool Box",
     message:
-      "An old tool box...there's a lock on it, but the drop seems to have messed it up. I wonder if I can't force it open with something...",
+      "An old tool box...there's a lock on it, but the drop seems to have messed it up. I wonder if I can force it open with something...",
   },
   "2-9": {
     title: "Potted Plants",
