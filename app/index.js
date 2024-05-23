@@ -6,7 +6,9 @@ import {
     StyleSheet,
     Button,
     TouchableOpacity,
+    TouchableWithoutFeedback,
     FlatList,
+    Keyboard,
 } from "react-native";
 import { useState, useEffect } from "react";
 import { PaperProvider } from "react-native-paper";
@@ -106,7 +108,7 @@ export default function Index() {
             }
         } else {
             playSound("InvalidCombo");
-            setMessage("Invalid card number");
+            setMessage("This combination doesn't seem to work...");
         }
         setSubmitted(!submitted);
     };
@@ -114,6 +116,8 @@ export default function Index() {
     const handleCodeSubmission = () => {
         if (userCode === requiredCode) {
             setMessage(resources[userInput].successMessage);
+            setRequiredCode("");
+            setInteractionType("");
         } else {
             setMessage("This seems not correct...");
         }
@@ -138,8 +142,6 @@ export default function Index() {
         setUserInput("");
         setMessage(resources["default"].message);
         setCardTitle(resources["default"].title);
-        setRequiredCode("");
-        setInteractionType("");
         setUserCode("");
     };
 
@@ -184,87 +186,92 @@ export default function Index() {
         );
     } else {
         return (
-            <PaperProvider>
-                <View style={styles.standardView}>
-                    <ItemModal
-                        visible={modalVisible}
-                        onDismiss={() => {
-                            setModalVisible(false);
-                        }}
-                        resourceId={modalResource}
-                    />
-                    <View style={styles.textBoxButton}>
-                        <TextInput
-                            multiline
-                            style={styles.textBox}
-                            placeholder="Enter Observations..."
-                            value={userInput}
-                            onChangeText={(text) => {
-                                if (text === "") {
-                                    setSubmitted(false);
-                                    handleReset();
-                                }
-                                setUserInput(text);
+            <TouchableWithoutFeedback
+                onPress={Keyboard.dismiss}
+                accessible={false}
+            >
+                <PaperProvider>
+                    <View style={styles.standardView}>
+                        <ItemModal
+                            visible={modalVisible}
+                            onDismiss={() => {
+                                setModalVisible(false);
                             }}
+                            resourceId={modalResource}
                         />
-                        <TouchableOpacity
-                            onPress={handleSubmission}
-                            style={styles.button}
-                        >
-                            <Text style={styles.buttonText}>Submit</Text>
-                        </TouchableOpacity>
-                    </View>
-                    {userInput === "" && (
-                        <View style={styles.contentView}>
-                            <Text>
-                                {
-                                    "Hint: Input observations as numbers (1-1, 1-2, etc.). \nInput combinations as lower number + higher numbers (1-1 + 1-2)"
-                                }
-                            </Text>
-                        </View>
-                    )}
-
-                    {foundItems.length > 0 && (
-                        <View style={styles.flatlistView}>
-                            <Text style={styles.messageText}>
-                                Current Observations
-                            </Text>
-                            <FlatList
-                                style={styles.flatlist}
-                                data={foundItems}
-                                renderItem={renderFoundAsButton}
-                                keyExtractor={(item) => item.id}
-                                horizontal
-                            />
-                        </View>
-                    )}
-                    {interactionType !== "" && (
                         <View style={styles.textBoxButton}>
                             <TextInput
                                 multiline
                                 style={styles.textBox}
-                                placeholder={`Enter ${interactionType}..`}
-                                value={userCode}
+                                placeholder="Enter Observations..."
+                                value={userInput}
                                 onChangeText={(text) => {
-                                    setUserCode(text);
+                                    if (text === "") {
+                                        setSubmitted(false);
+                                        handleReset();
+                                    }
+                                    setUserInput(text);
                                 }}
                             />
                             <TouchableOpacity
-                                onPress={handleCodeSubmission}
+                                onPress={handleSubmission}
                                 style={styles.button}
                             >
-                                <Text style={styles.buttonText}>
-                                    {"Submit " + interactionType}
-                                </Text>
+                                <Text style={styles.buttonText}>Submit</Text>
                             </TouchableOpacity>
                         </View>
-                    )}
-                    <View style={styles.contentView}>
-                        <Text style={styles.title}>{cardTitle}</Text>
-                        <Text style={styles.messageText}>{message}</Text>
+                        {userInput === "" && (
+                            <View style={styles.contentView}>
+                                <Text>
+                                    {
+                                        'Hint: Input observations as numbers (11, 12, etc.). \nInput combinations using "+" (11 + 12). \nCombinations can be made with up to 3 items'
+                                    }
+                                </Text>
+                            </View>
+                        )}
+
+                        {foundItems.length > 0 && (
+                            <View style={styles.flatlistView}>
+                                <Text style={styles.messageText}>
+                                    Current Observations
+                                </Text>
+                                <FlatList
+                                    style={styles.flatlist}
+                                    data={foundItems}
+                                    renderItem={renderFoundAsButton}
+                                    keyExtractor={(item) => item.id}
+                                    horizontal
+                                />
+                            </View>
+                        )}
+                        {interactionType !== "" && (
+                            <View style={styles.textBoxButton}>
+                                <TextInput
+                                    multiline
+                                    style={styles.textBox}
+                                    placeholder={`Enter ${interactionType}..`}
+                                    value={userCode}
+                                    onChangeText={(text) => {
+                                        setUserCode(text);
+                                    }}
+                                />
+                                <TouchableOpacity
+                                    onPress={handleCodeSubmission}
+                                    style={styles.button}
+                                >
+                                    <Text style={styles.buttonText}>
+                                        {"Submit " + interactionType}
+                                    </Text>
+                                </TouchableOpacity>
+                            </View>
+                        )}
+                        <View style={styles.contentView}>
+                            <Text style={styles.title}>{cardTitle}</Text>
+                            <Text style={styles.messageText}>{message}</Text>
+                        </View>
                     </View>
-                </View>
-            </PaperProvider>
+                </PaperProvider>
+            </TouchableWithoutFeedback>
         );
     }
 }

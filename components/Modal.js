@@ -16,8 +16,12 @@ export default function ItemModal({ visible, onDismiss, resourceId }) {
                             : styles.modalAndroid
                     }
                 >
-                    <Text>{resources[resourceId].title}</Text>
-                    <Text>{resources[resourceId].message}</Text>
+                    <Text style={{ color: "black" }}>
+                        {resourceId + " - " + resources[resourceId].title}
+                    </Text>
+                    <Text style={{ color: "black" }}>
+                        {resources[resourceId].message}
+                    </Text>
                     <View
                         style={[styles.buttonGroup, { marginTop: "5%" }]}
                     ></View>
