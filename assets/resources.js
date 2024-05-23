@@ -10,9 +10,9 @@ let resources = {
     level1: {
         title: "Level 1: The Rooftop",
         message:
-            "Why am I on top of the roof... my head hurts... \n\n(Get 1-1, 1-2, 1-3, 1-4)",
+            "Why am I on top of the roof... my head hurts... \n\n(Get 11, 12, 13, 14)",
     },
-    "1-1": {
+    11: {
         title: "Lock",
         message: "The door is locked shut...if only I knew the combination",
         interaction: "code",
@@ -20,16 +20,16 @@ let resources = {
         successMessage:
             "To the next floor... (Unlock Level 2)\n\n(Type 'Level 2' in the first text box)",
     },
-    "1-2": {
+    12: {
         title: "Poster",
         message: "A poster to some arts event...interesting",
     },
-    "1-3": {
+    13: {
         title: "Over the Roof (Left)",
         message:
             "The building seems about 5 stories tall...I wonder why there's so many police down there",
     },
-    "1-4": {
+    14: {
         title: "Over the Roof (Right)",
         message:
             "This art event seems similar to the poster I saw earlier... I wonder if they're related",
@@ -41,7 +41,7 @@ let resources = {
     24: {
         title: "Boxes",
         message:
-            "A bunch of cardboard boxes...I wonder if there's anything in them\n\n(Get 2-13)",
+            "A bunch of cardboard boxes...I wonder if there's anything in them\n\n(Get 213, 214)",
     },
     29: {
         title: "Empty Pots",
@@ -123,7 +123,7 @@ let resources = {
     "22,23": {
         title: "Breaking the shelf",
         message:
-            "Hopefully they won't mind the broken shelf... \n\n(Get 2-12, 2-2, 2-6, 2-7, 2-8, 2-9)",
+            "Hopefully they won't mind the broken shelf... \n\n(Get 27, 28, 29, 210, 211)",
     },
     "212,214": {
         title: "Forcing the screwdriver set open",
@@ -144,7 +144,7 @@ let resources = {
     level3: {
         title: "Level 3: The apartment room after the vent",
         message:
-            "This doesn't look like my apartment. I think. Luckily it doesn't sound like anyone's home.\n\n(Get 3-21, 3-18)",
+            "This doesn't look like my apartment. I think. Luckily it doesn't sound like anyone's home.\n\n(Get 31)",
     },
     32: {
         title: "Office Door",
@@ -158,7 +158,7 @@ let resources = {
     311: {
         title: "Open Window",
         message:
-            "If I reach I think I can climb through that window\n\n(Get 3-8)",
+            "If I reach I think I can climb through that window\n\n(Get 313)",
     },
     318: {
         title: "Disheveled Desk",
@@ -168,7 +168,7 @@ let resources = {
     //3-5
     310: {
         title: "Balcony",
-        message: "Ugh, I hate heights. Makes my stomach turn\n\n(Get 3-3, 3-7)",
+        message: "Ugh, I hate heights. Makes my stomach turn\n\n(Get 311, 312)",
     },
     "36,38": {
         title: "Prying the door open",
@@ -191,7 +191,7 @@ let resources = {
     313: {
         title: "Bedroom",
         message:
-            "This bedroom is so neat it feels untouched. Like no one has lived here in years.\n\n(Get 3-12, 3-17)",
+            "This bedroom is so neat it feels untouched. Like no one has lived here in years.\n\n(Get 313, 314)",
     },
     33: {
         title: "Bedroom Door",
@@ -218,7 +218,7 @@ let resources = {
     //3-13
     317: {
         title: "Office",
-        message: "Wow, it's a mess in here\n\n(Get 3-13, 3-16)",
+        message: "Wow, it's a mess in here\n\n(Get 318, 319)",
     },
     "32,316": {
         title: "Unlocking the Office Door",
@@ -226,7 +226,7 @@ let resources = {
     },
     37: {
         title: "Fridge",
-        message: "Ah, there's a note here\n\n(Get 3-2)",
+        message: "Ah, there's a note here\n\n(Get 39)",
     },
     316: {
         title: "Key",
@@ -238,12 +238,12 @@ let resources = {
     },
     314: {
         title: "Dresser",
-        message: "Aha, there's a key here\n\n(Get 3-15)",
+        message: "Aha, there's a key here\n\n(Get 316)",
     },
     35: {
         title: "Kitchenette",
         message:
-            "It's appointed well enough. Wonder if there's anything around here to help me get out.\n\n(Get 3-11, 3-14)",
+            "It's appointed well enough. Wonder if there's anything around here to help me get out.\n\n(Get 37, 38)",
     },
     36: {
         title: "Sliding Glass Door",
@@ -256,7 +256,11 @@ let resources = {
     31: {
         title: "Living Room",
         message:
-            "Much tidier than my apartment, certainly. And the view is much better.\n\n(Get 3-1, 3-9, 3-19, 3-20)",
+            "Much tidier than my apartment, certainly. And the view is much better.\n\n(Get 32, 33, 34, 35, 36)",
+    },
+    level4: {
+        title: "Level 4 & 5 Under Development",
+        message: "Thanks for playing",
     },
 };
 
