@@ -68,8 +68,9 @@ let resources = {
         message: "What the heck happened to this mop? Is that a hint of blood?",
     },
     27: {
-        title: "large Mulch Bags",
-        message: "Mulch bags, but they're too malleable to stand on",
+        title: "Large Mulch Bags",
+        message:
+            "Mulch bags, but they're too malleable to stand on. I wonder if I can fill anything with this...",
     },
     28: {
         title: "Potted Plants",
@@ -95,7 +96,8 @@ let resources = {
     },
     213: {
         title: "Opened Boxes",
-        message: "What's in here? A screwdriver set?",
+        message:
+            "This seems to be enough to reach the vent cover, but I can't stand on them...",
     },
     214: {
         title: "Sealed Screwdriver Set",
@@ -128,6 +130,16 @@ let resources = {
     "26,210": {
         title: "Whacking the tool box open",
         message: "There's a key inside, but there's no locks...\n\n(Get 212)",
+    },
+    "27,28": {
+        title: "Adding Mulch to the pot",
+        message:
+            "There's still a lot of mulch, is there anything else I can add this to?",
+    },
+    "27,29": {
+        title: "Adding Mulch to the pot",
+        message:
+            "There's still a lot of mulch, is there anything else I can add this to?",
     },
     "212,214": {
         title: "Prying the screwcase open",
@@ -238,6 +250,35 @@ let resources = {
     "32,316": {
         title: "Unlocking the Office Door",
         message: "Let's see what's inside\n\n(Get 317)",
+    },
+    "34,312": {
+        title: "A way down?",
+        message: "This doesn't go far enough down, it's still too dangerous.",
+    },
+    "312,315": {
+        title: "A way down?",
+        message: "This doesn't go far enough down, it's still too dangerous.",
+    },
+    "312,314": {
+        title: "A way down?",
+        message: "This doesn't go far enough down, it's still too dangerous.",
+    },
+    "34,312,315": {
+        title: "A way down?",
+        message: "Almost there, I think adding 1 more might be enough...",
+    },
+    "34,312,319": {
+        title: "A way down?",
+        message: "Almost there, I think adding 1 more might be enough...",
+    },
+    "315,319,312": {
+        title: "A way down?",
+        message: "Almost there, I think adding 1 more might be enough...",
+    },
+    "34,312,315,319": {
+        title: "A little much",
+        message:
+            "It's long enough, but I better tie the sheets together first...",
     },
     "36,38": {
         title: "Prying the door open",
