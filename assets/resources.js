@@ -131,6 +131,10 @@ let resources = {
     title: "Whacking the tool box open",
     message: "There's a key inside, but there's no locks...\n\n(Get 212)",
   },
+  "27,213": {
+    title: "Adding Mulch to the opened boxes",
+    message: "This seems sturdy enough to stand on now\n\n(Get 216)",
+  },
   "27,28": {
     title: "Adding Mulch to the pot",
     message:
@@ -291,7 +295,7 @@ let resources = {
   },
   level4: {
     title: "Level 4: The Pool",
-    message: "Get 41, 42, 43, 44, 48",
+    message: "Get 41, 42, 43, 44, 47, 48",
   },
   41: {
     title: "Barricaded exit door",
@@ -420,7 +424,7 @@ let resources = {
   428: {
     title: "Tunnel leading downwards",
     message:
-      "Well that's one way to use a toilet plunger. Gosh that's pitch black...I'm not trying to fall to my death today",
+      "Gosh that's pitch black...I'm not trying to fall to my death today",
   },
   429: {
     title: "Onto the next level",
@@ -439,12 +443,12 @@ let resources = {
     title: "Removing the loose plank...",
     message: "Finally... \n\n(Get 417)",
   },
-  "43,49": {
+  "43,419": {
     title: "Unlocking the controller room...",
     message:
       "Finally...hopefully there's something here that can help me empty the pool\n\n(Get 422)",
   },
-  "44,420": {
+  "420,423": {
     title: "Unlocking locked cupboard...",
     message: "So that's what the other key was for...\n\n(Get 424)",
   },
@@ -455,8 +459,7 @@ let resources = {
   },
   "421,427": {
     title: "Removing the tile...",
-    message:
-      "Well that's one way to use a toilet plunger. Gosh that's pitch black...I'm not trying to fall to my death today\n\n(Get 428)",
+    message: "Well that's one way to use a toilet plunger.(Get 428)",
   },
   "411,428": {
     title: "Climbing down the tunnel...",
@@ -464,7 +467,227 @@ let resources = {
   },
   level5: {
     title: "Level 5",
-    message: "Under development",
+    message:
+      "I made it to the ground floor, almost out...\n\n(Get 51, 52, 53, 54, 55, 56, 57, 58, 59, 510)",
+  },
+  51: {
+    title: "Elevator",
+    message:
+      "Great, it's working, if I need to return to any previous floors, I can",
+  },
+  52: {
+    title: "Front Door",
+    message:
+      "It's boarded shut... not amount of force will open it from this side",
+  },
+  53: {
+    title: "Front Desk",
+    message:
+      "It's the front desk, why's there no one here...\n\n(Get 511, 512, 513)",
+  },
+  54: {
+    title: "Filing Cabinets",
+    message:
+      "That's a lot of cabinets, is it okay for me to look through these?\n\n(Get 527)",
+  },
+  55: {
+    title: "Vending Machine",
+    message:
+      "There's not a lot of drinks left... but I also don't really have any money",
+  },
+  56: {
+    title: "Big Potted Plants",
+    message:
+      "Don't tell me that the plants are producing this rancid smell\n\n(Get 523)",
+  },
+  57: {
+    title: "Door 1 (Locked)",
+    message: "It's a locked door. I don't think I can break it open.",
+  },
+  58: {
+    title: "Door 2 (Locked)",
+    message: "It's a locked door. I don't think I can open it.",
+  },
+  59: {
+    title: "Restroom door",
+    message: "The restroom, maybe I should use it...\n\n(Get 525, 526)",
+  },
+  510: {
+    title: "Lounge area",
+    message:
+      "This is where people would sit down and wait...\n\n(Get 531, 532, 533)",
+  },
+  511: {
+    title: "Left drawer (Drawer 1)",
+    message: "It's the left drawer of the front desk\n\n(Get 518, 519, 520)",
+  },
+  512: {
+    title: "Post - it note on front desk",
+    message: "It looks like a reminder, let's take a look at what's on it",
+  },
+  513: {
+    title: "Safe",
+    message:
+      "A locked safe, looks like I'll need a 4 digit code\n\nGet(515, 521)",
+  },
+  514: {
+    title: "Opened safe",
+    message:
+      "Ok, now the safe is open. Let's take a look at what's inside\n\n(Get 521, 529, 230)",
+  },
+  515: {
+    title: "Note on Safe",
+    message: "It's a note on the safe. What year could that be...?",
+  },
+  516: {
+    title: "Ballpoint Pen",
+    message: "It's a ballpoint pen for everyone to use",
+  },
+  517: {
+    title: "Right drawer (Drawer 2)",
+    message: "It's the right drawer of the front desk\n\nGet(522)",
+  },
+  518: {
+    title: "Stack of Business cards",
+    message: `It's a stack of business cards. it looks like it's for a place called "Fern Apartments"`,
+  },
+  519: {
+    title: "Pair of pens",
+    message:
+      "A pair of pens, they're different from the ball point pens though",
+  },
+  520: {
+    title: "Dead flashlight",
+    message:
+      "It's a flashlight, but it won't turn on. The battery is dead\n\n(Get 524)",
+  },
+  521: {
+    title: "spare change",
+    message:
+      "There's some spare change, wonder if it's enough to get a drink from the vending machine",
+  },
+  522: {
+    title: "Newspaper (with ripped corner)",
+    message:
+      "It's a newspaper about a disaster that happened at Fern apartments. But there's no date. Did someone rip that portion out on purpose?",
+  },
+  523: {
+    title: "Old Janitor shirt",
+    message: "An old janitor shirt, this is where the stench is coming from!",
+  },
+  524: {
+    title: "Dead Battery",
+    message: "Looks like I managed to get the battery out of the flashlight",
+  },
+  525: {
+    title: "Weird pattern on the Wall",
+    message: "There's a weird pattern, wonder if it'll be used for anything",
+  },
+  526: {
+    title: "Cleaning Cart",
+    message: "The cleaning cart... if this is here, then where's the janitor?",
+  },
+  527: {
+    title: "Anniversary Book",
+    message: "An staff anniversary book for Fern Apartments",
+  },
+  528: {
+    title: "Bookmarked Page",
+    message: "Why does the year skip from 2011 to 2013?",
+  },
+  529: {
+    title: "Door 1 Key",
+    message: "This seems to be the key for the door on the left",
+  },
+  530: {
+    title: "Door 2 Key",
+    message: "This seems to be the key for the door on the right",
+  },
+  531: {
+    title: "Forgotten Toy",
+    message: "A teddy bear, why would a kid leave behind their toy?",
+  },
+  532: {
+    title: "Dead laptop",
+    message:
+      "Would people leave their laptop open if there wasn't an emergency...?",
+  },
+  533: {
+    title: "Unfinished Homework",
+    message:
+      "It's some homework, I think I can solve these problems if I try hard enough...",
+  },
+  534: {
+    title: "Side Storage Room",
+    message:
+      "There a bunch of stuff here, hope they don't mind me using some...\n\n(Get 538, 539, 540, 541, 542, 543, 544)",
+  },
+  535: {
+    title: "Something High on Top?",
+    message: "I think there's something sparkly there, but I can't reach it...",
+  },
+  536: {
+    title: "Sparkler Set",
+    message: "A sparkler set, is someone planning a party?",
+  },
+  537: { title: "Key", message: "A Key, this is probably the spare..." },
+  538: { title: "Tool Kit", message: "It's a tool kit" },
+  539: {
+    title: "Steel Wool",
+    message: "Some steel wool, wonder what I can use it for?",
+  },
+  540: { title: "Ladder", message: "Now I can reach the top shelf" },
+  541: {
+    title: "Art supplies",
+    message: "Wasn't there supposed to be an art festival?",
+  },
+  542: {
+    title: "Locked safe in Storage",
+    message: "it's the second locked safe, time to find a second code",
+    successMessage: "It's unlocked!\n\n(Get 545, 547)",
+  },
+  543: { title: "Rubbing alcohol", message: "A bottle of rubbing alcohol" },
+  544: { title: "Boxes", message: "Some empty boxes" },
+  545: {
+    title: "Tiny jar of gunpowder",
+    message:
+      "it's a tiny jar of gunpowder... it seems to be just enough to cause a small explosion",
+  },
+  546: { title: "Hammer", message: "A hammer from the tool kit" },
+  547: {
+    title: "Single match stick",
+    message:
+      "Where's the rest of the matches and box... Can I even light this?",
+  },
+  548: {
+    title: "Broken Vending machine",
+    message: "Even without paying, I can get drinks",
+  },
+  549: {
+    title: "Several drink cans",
+    message: "It's not much, but there's a least a couple cans",
+  },
+  550: {
+    title: "Door 2 with Destroyed Lock",
+    message:
+      "... and ignite with the charge from the battery... and the lock's busted. I can open the door now",
+  },
+  "55,544": {
+    title: "Bashing the Vending Machine",
+    message: "Now I have the cans, I can stack these!\n\n(Get 548, 549)",
+  },
+  "57,529": {
+    title: "Unlocking the the first door",
+    message: "Nice, that worked!\n\n(Get 534)",
+  },
+  "58,529": {
+    title: "The key doesn't match!",
+    message: "This doesn't work...",
+  },
+  "58, 524, 541, 547": {
+    title: "Blowing up the stubborn door lock",
+    message:
+      "The door is slightly opened... now to get out of here\n\n(Get Ending)",
   },
 };
 
