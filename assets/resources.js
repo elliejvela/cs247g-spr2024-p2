@@ -269,7 +269,7 @@ let resources = {
     title: "A way down?",
     message: "Almost there, I think adding 1 more might be enough...",
   },
-  "315,319,312": {
+  "312,315,319": {
     title: "A way down?",
     message: "Almost there, I think adding 1 more might be enough...",
   },
@@ -351,7 +351,7 @@ let resources = {
   },
   413: {
     title: "Wrench",
-    message: "Yes! The pool skimmer was just long enough",
+    message: "This could be useful. Where did I see screws earlier?",
   },
   414: {
     title: "Sauna",
@@ -369,7 +369,7 @@ let resources = {
   },
   417: {
     title: "Inside maintenance closet",
-    message: "Finally \n\n (Get 418, 421)",
+    message: "What could be useful here... \n\n (Get 418, 421)",
   },
   418: {
     title: "Janitor pants",
@@ -392,7 +392,7 @@ let resources = {
   422: {
     title: "Inside controller room",
     message:
-      "Finally...hopefully there's something here that can help me empty the pool\n\n(Get 423)",
+      "Hopefully there's something here that can help me empty the pool...\n\n(Get 423)",
   },
   423: {
     title: "Locked Cupboard",
@@ -400,7 +400,7 @@ let resources = {
   },
   424: {
     title: "Open Cupboard",
-    message: "So that's what the other key was for... \n\n(Get 425)",
+    message: "A bunch of junk...wait what's that?\n\n(Get 425)",
   },
   425: {
     title: "Pool pump",
@@ -409,7 +409,8 @@ let resources = {
   },
   426: {
     title: "Empty Pool",
-    message: "I really hope there's no one here...\n\n (Get 49, 412)",
+    message:
+      "Let's take a closer look at that thing at the bottom\n\n (Get 49, 412)",
   },
   427: {
     title: "Odd-Looking Pool Tile",
@@ -423,19 +424,19 @@ let resources = {
   },
   429: {
     title: "Onto the next level",
-    message: "Let's climb down this ladder and see what's next",
+    message:
+      "Let's climb down this ladder and see what's next (Unlock Level 5)",
   },
   "45,412": {
     title: "Reaching into the maintenance closet...",
-    message: "Yes! The pool skimmer was just long enough\n\n (Get 413)",
+    message: "Yes! The pool skimmer was just long enough\n\n(Get 413)",
   },
   "47,413": {
     title: "Breaking the metal grate...",
-    message:
-      "This sauna is so...old and out-of-order. No wonder they hid this from the public.This sauna is so...old and out-of-order. No wonder they hid this from the public.\n\n(Get 414)",
+    message: "Woah, a secret room...\n\n(Get 414)",
   },
   "410,415": {
-    title: "Remoing the loose plank...",
+    title: "Removing the loose plank...",
     message: "Finally... \n\n(Get 417)",
   },
   "43,49": {
@@ -460,6 +461,10 @@ let resources = {
   "411,428": {
     title: "Climbing down the tunnel...",
     message: "Let's climb down this ladder and see what's next \n\n(Get 429)",
+  },
+  level5: {
+    title: "Level 5",
+    message: "Under development",
   },
 };
 
