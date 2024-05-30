@@ -43,9 +43,11 @@ export default function Index() {
 
   let [foundItems, setFoundItems] = useState([[], [], [], [], []]);
 
-  // configure audio settings
-  const [SfxPlayer, setSfxPlayer] = useState();
-  const [bgMusicPlayer, setBgMusicPlayer] = useState();
+  // audio player
+  const [SfxPlayer, setSfxPlayer] = useState(undefined);
+  const [bgMusicPlayer, setBgMusicPlayer] = useState(undefined);
+  const BACKGROUND_MUSIC_VOLUME = 0.5;
+  const SFX_VOLUME = 1.0;
 
   // Modal for prior observations
   const [modalVisible, setModalVisible] = useState(false);
@@ -55,7 +57,7 @@ export default function Index() {
   async function playSound(soundName) {
     const SfxPlayer = new Audio.Sound();
     Audio.setAudioModeAsync({
-      playsInSilentModeIOS: true,
+      playsInSilentModeIOS: false,
       staysActiveInBackground: false,
     });
 
@@ -66,16 +68,25 @@ export default function Index() {
     };
 
     soundfile = level_1_sound_effects[soundName];
-    if (soundName === "") {
+    if (soundName === undefined) {
+      await SfxPlayer.loadAsync(require("../assets/sounds/CorrectCombo.mp3"), {
+        volume: SFX_VOLUME,
+      });
+      console.log("Playing default interaction");
+      setSfxPlayer(SfxPlayer);
+
+      await SfxPlayer.playAsync();
+    } else if (soundName.toLowerCase() === "none") {
+      console.log("playing no sound");
       return;
     } else if (soundfile != undefined) {
-      await SfxPlayer.loadAsync(soundfile);
+      await SfxPlayer.loadAsync(soundfile, { volume: SFX_VOLUME });
       console.log("Playing Sound " + soundName);
       setSfxPlayer(SfxPlayer);
 
       await SfxPlayer.playAsync();
     } else {
-      console.log("invalid soundname");
+      console.log("invalid soundname " + soundName);
     }
   }
 
@@ -91,7 +102,7 @@ export default function Index() {
   async function playBgMusic(bgMusicName) {
     const musicPlayer = new Audio.Sound();
     Audio.setAudioModeAsync({
-      playsInSilentModeIOS: true,
+      playsInSilentModeIOS: false,
       staysActiveInBackground: false,
     });
 
@@ -104,7 +115,9 @@ export default function Index() {
     if (bgMusicName === "") {
       return;
     } else if (soundfile != undefined) {
-      await musicPlayer.loadAsync(soundfile);
+      await musicPlayer.loadAsync(soundfile, {
+        volume: BACKGROUND_MUSIC_VOLUME,
+      });
       console.log("Playing background music " + bgMusicName);
       setBgMusicPlayer(musicPlayer);
 

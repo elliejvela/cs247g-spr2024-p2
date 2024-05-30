@@ -12,6 +12,7 @@ let resources = {
     message:
       "Why am I on top of the roof... my head hurts... And I'm cold... Sure hope it doesn't snow while I'm outside...\n\n(Get 11, 12, 13, 14)",
     bgMusic: "level-1-background",
+    sound: "None",
   },
   11: {
     title: "Lock",
