@@ -10,7 +10,7 @@ let resources = {
   level1: {
     title: "Level 1: The Rooftop",
     message:
-      "Why am I on top of the roof... my head hurts... \n\n(Get 11, 12, 13, 14)",
+      "Why am I on top of the roof... my head hurts... And I'm cold... Sure hope it doesn't snow while I'm outside...\n\n(Get 11, 12, 13, 14)",
     bgMusic: "level-1-background",
   },
   11: {
@@ -525,7 +525,7 @@ let resources = {
   512: {
     title: "Post - it note on front desk",
     message:
-      'It looks like a reminder...\n\n"Note: Remember to get ready for the festival. The temporary code for the safe in storage is the date of the art festival"',
+      'It looks like a reminder...\n\n"Note: Remember to get ready for the festival. Decorations are in storage. The temporary code for the safe in storage is the date of the end of the year art festival\n"',
   },
   513: {
     title: "Safe",
@@ -562,9 +562,9 @@ let resources = {
       "A pair of pens, they're different from the ball point pens though",
   },
   520: {
-    title: "Dead flashlight",
+    title: "Flashlight",
     message:
-      "It's a flashlight, but it won't turn on. The battery is dead\n\n(Get 524)",
+      "It's a flashlight, but it won't turn on. Is the battery dead?\n\n(Get 524)",
   },
   521: {
     title: "spare change",
@@ -581,7 +581,7 @@ let resources = {
     message: "An old janitor shirt, this is where the stench is coming from!",
   },
   524: {
-    title: "Dead Battery",
+    title: "Questionable Battery",
     message: "Looks like I managed to get the battery out of the flashlight",
   },
   525: {
