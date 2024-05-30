@@ -125,6 +125,10 @@ let resources = {
     message:
       "Hopefully they won't mind the broken shelf... \n\n(Get 27, 28, 29, 210, 211)",
   },
+  "23,216": {
+    title: "The Vent Cover is Locked!",
+    message: "I can reach the cover, but it's still locked shut"
+  },
   "24,27": {
     title: "Adding Mulch to Boxes",
     message: "This looks sturdy enough to stand on... \n\n(Get 216)",
@@ -205,7 +209,7 @@ let resources = {
   },
   311: {
     title: "Open Window",
-    message: "If I reach I think I can climb through that window\n\n(Get 313)",
+    message: "If I reach I think I can climb through that window. Looks like it goes to the bedroom.\n\n(Get 313)",
   },
   312: {
     title: "Railing",
@@ -680,6 +684,10 @@ let resources = {
     title: "Door 2 with Destroyed Lock",
     message:
       "... and ignite with the charge from the battery... and the lock's busted. I can open the door now",
+  },
+  "55,521": {
+    title: 'Not enough money',
+    message: "There wasn't enough change..."
   },
   "55,546": {
     title: "Bashing the Vending Machine",

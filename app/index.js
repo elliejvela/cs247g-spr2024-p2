@@ -10,6 +10,7 @@ import {
   FlatList,
   Pressable,
   ScrollView,
+  ImageBackground
 } from "react-native";
 import { useState, useEffect } from "react";
 import { PaperProvider, List } from "react-native-paper";
@@ -18,13 +19,7 @@ import { Audio } from "expo-av";
 import { resources } from "../assets/resources.js";
 import ItemModal from "../components/Modal.js";
 
-const levelToIndex = {
-  level1: 0,
-  level2: 1,
-  level3: 2,
-  level4: 3,
-  level5: 4,
-};
+let backgroundImage = require("../assets/images/old_building.png");
 
 export default function Index() {
   let [beginGame, setBeginGame] = useState(false);
@@ -216,8 +211,8 @@ export default function Index() {
       if (input === "58,530") {
         resources["58"]["message"] =
           "I need a different way to open this door...";
-        resources["58"]["code"] = "524,543,545,549";
-        resources["58"]["interaction"] = "Item Combo";
+        resources["58"]["code"] = "524,539,543,545,549";
+        resources["58"]["interaction"] = "5 - Item Combo";
         resources["58"]["successMessage"] =
           "The door opened... now to get out of here\n\n(Get Ending)";
       }
@@ -361,6 +356,10 @@ export default function Index() {
               placeholder={`Enter ${interactionType}..`}
               value={userCode}
               onChangeText={(text) => {
+                if (interactionType !== "") {
+                  setInteractionType("");
+                }
+
                 setUserCode(text);
               }}
             />
@@ -396,6 +395,7 @@ export default function Index() {
       <Pressable style={styles.standardView} onPress={Keyboard.dismiss}>
         <PaperProvider>
           <View style={styles.standardView}>
+          <ImageBackground source={backgroundImage} imageStyle={{opacity: 0.05}}>
             <ItemModal
               visible={modalVisible}
               onDismiss={() => {
@@ -509,6 +509,7 @@ export default function Index() {
               <Text style={styles.title}>{cardTitle}</Text>
               <Text style={styles.messageText}>{message}</Text>
             </View>
+            </ImageBackground>
           </View>
         </PaperProvider>
       </Pressable>
