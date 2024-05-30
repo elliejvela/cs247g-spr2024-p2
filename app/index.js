@@ -43,47 +43,52 @@ export default function Index() {
 
   let [foundItems, setFoundItems] = useState([[], [], [], [], []]);
 
-  const [sound, setSound] = useState();
+  // configure audio settings
+  const [SfxPlayer, setSfxPlayer] = useState();
 
   // Modal for prior observations
   const [modalVisible, setModalVisible] = useState(false);
   const [modalResource, setModalResource] = useState("");
 
-  // play
+  // play sound effects
   async function playSound(soundName) {
-    level_1_sounds = {
-      VentCrawl: await Audio.Sound.createAsync(
-        require("../assets/sounds/VentCrawl.mp3")
-      ),
-      InvalidCombo: await Audio.Sound.createAsync(
-        require("../assets/sounds/InvalidCombo.mp3")
-      ),
-      StartupSound: await Audio.Sound.createAsync(
-        require("../assets/sounds/StartupSound.mp3")
-      ),
+    console.log("playSound function");
+    const SfxPlayer = new Audio.Sound();
+    Audio.setAudioModeAsync({
+      playsInSilentModeIOS: true,
+      staysActiveInBackground: false,
+    });
+
+    level_1_sound_effects = {
+      VentCrawl: require("../assets/sounds/VentCrawl.mp3"),
+      InvalidCombo: require("../assets/sounds/InvalidCombo.mp3"),
+      StartupSound: require("../assets/sounds/StartupSound.mp3"),
     };
 
-    const { sound } = level_1_sounds[soundName];
+    soundfile = level_1_sound_effects[soundName];
+    console.log("attempting to play sound: " + soundName);
     if (soundName === "") {
+      console.log("empty sound name");
       return;
-    } else if (sound != undefined) {
+    } else if (soundfile != undefined) {
+      await SfxPlayer.loadAsync(soundfile);
       console.log("Playing Sound " + soundName);
-      setSound(sound);
+      setSfxPlayer(SfxPlayer);
 
-      await sound.playAsync();
+      await SfxPlayer.playAsync();
     } else {
       console.log("invalid soundname");
     }
   }
 
   useEffect(() => {
-    return sound
+    return SfxPlayer
       ? () => {
-          sound.unloadAsync();
+          SfxPlayer.unloadAsync();
           console.log("Unloading Sound");
         }
       : undefined;
-  }, [sound]);
+  }, [SfxPlayer]);
 
   const handleSubmission = () => {
     //process user input for JSON lookup
@@ -110,26 +115,29 @@ export default function Index() {
           // Check if the required card is already used
           let validPassLevel = false;
 
-          switch(lvlNum) {
-            case '2':
+          switch (lvlNum) {
+            case "2":
               validPassLevel = true;
               break; // TODO: Get feedback from team if we want to add a card to Level 1 that is the success card check, Level 2/3/4 all have a success card
-            case '3':
-              validPassLevel = foundItems[1].find(ele => ele.id === "218") !== undefined;
+            case "3":
+              validPassLevel =
+                foundItems[1].find((ele) => ele.id === "218") !== undefined;
               break;
-            case '4':
-              validPassLevel = foundItems[2].find(ele => ele.id === "321") !== undefined;
+            case "4":
+              validPassLevel =
+                foundItems[2].find((ele) => ele.id === "321") !== undefined;
               break;
-            case '5':
-              validPassLevel = foundItems[3].find(ele => ele.id === "429") !== undefined;
+            case "5":
+              validPassLevel =
+                foundItems[3].find((ele) => ele.id === "429") !== undefined;
               break;
             default:
-              console.log("default case")
+              console.log("default case");
           }
 
           if (!validPassLevel) {
             setCardTitle("The Job is Not Done...");
-            setMessage("There are still things to do here...")
+            setMessage("There are still things to do here...");
             return;
           }
         }
@@ -140,7 +148,7 @@ export default function Index() {
           let tempList = [...userLvlProgress, `Level ${lvlNum}`];
           tempList.sort();
           setUserLvlProgress(tempList);
-          setUserSelectedLvlButton(lvlNum - 1)
+          setUserSelectedLvlButton(lvlNum - 1);
         }
       }
 
@@ -158,10 +166,12 @@ export default function Index() {
 
       // Special interaction for Level 5
       if (input === "58,530") {
-        resources["58"]["message"] = "I need a different way to open this door..."
+        resources["58"]["message"] =
+          "I need a different way to open this door...";
         resources["58"]["code"] = "524,543,545,549";
-        resources["58"]["interaction"] = "Item Combo"
-        resources["58"]["successMessage"] = "The door opened... now to get out of here\n\n(Get Ending)"
+        resources["58"]["interaction"] = "Item Combo";
+        resources["58"]["successMessage"] =
+          "The door opened... now to get out of here\n\n(Get Ending)";
       }
 
       if (
@@ -179,9 +189,8 @@ export default function Index() {
       }
     } else if (userInput.toLowerCase() === "ending") {
       setShowEnding(true);
-      setInteractionType(resources["ending"]["interaction"])
-    } 
-    else {
+      setInteractionType(resources["ending"]["interaction"]);
+    } else {
       playSound("InvalidCombo");
       setMessage("This combination doesn't seem to work...");
     }
@@ -204,7 +213,6 @@ export default function Index() {
       validUserInputs.find((ele) => ele === userInput) !== undefined &&
       code === requiredCode
     ) {
-
       setMessage(resources[userInput].successMessage);
       setRequiredCode("");
       setInteractionType("");
@@ -224,11 +232,15 @@ export default function Index() {
 
   const handleEndingSubmit = () => {
     if (userCode.toLowerCase().includes("janitor")) {
-      setEndingMessage("With your overwhelming evidence, the police officers lower their guns and thank you for your lead about the real culprit. As the officers rush pass you, you wonder how they're going to go up the building...")
+      setEndingMessage(
+        "With your overwhelming evidence, the police officers lower their guns and thank you for your lead about the real culprit. As the officers rush pass you, you wonder how they're going to go up the building..."
+      );
     } else {
-      setEndingMessage("Nothing you say convinces the police. You are forced the ground. Your life will never be the same again...")
+      setEndingMessage(
+        "Nothing you say convinces the police. You are forced the ground. Your life will never be the same again..."
+      );
     }
-  }
+  };
 
   const renderFoundAsButton = ({ item }) => {
     return (
@@ -273,7 +285,6 @@ export default function Index() {
               if (userInput.toLowerCase() == "level 1") {
                 setBeginGame(true);
                 playSound("StartupSound");
-
                 handleSubmission();
                 setUserLvlProgress(["Level 1"]);
               }
@@ -285,56 +296,54 @@ export default function Index() {
         </View>
       </View>
     );
-  } 
-  else if (showEnding) {
+  } else if (showEnding) {
     return (
       <View style={styles.standardView}>
-            <View style={styles.contentView}>
-              <Text style={styles.title}>{resources["ending"]["title"]}</Text>
-              <Text style={styles.messageText}>{resources["ending"]["message"]}</Text>
-            </View>
+        <View style={styles.contentView}>
+          <Text style={styles.title}>{resources["ending"]["title"]}</Text>
+          <Text style={styles.messageText}>
+            {resources["ending"]["message"]}
+          </Text>
+        </View>
 
-            {interactionType !== "" && (
-              <View style={styles.textBoxButton}>
-                <TextInput
-                  multiline
-                  style={styles.textBox}
-                  placeholder={`Enter ${interactionType}..`}
-                  value={userCode}
-                  onChangeText={(text) => {
-                    setUserCode(text);
-                  }}
-                />
-                {endingMessage === "" && <TouchableOpacity
-                  onPress={handleEndingSubmit}
-                  style={styles.button}
-                >
-                  <Text style={styles.buttonText}>
-                    {"Submit " + interactionType}
-                  </Text>
-                </TouchableOpacity>
-                }
-
-                {endingMessage !== "" && <TouchableOpacity
-                  onPress={() => setEndingMessage("")}
-                  style={styles.button}
-                >
-                  <Text style={styles.buttonText}>
-                    Try Again
-                  </Text>
-                </TouchableOpacity>
-                } 
-
-              </View>
+        {interactionType !== "" && (
+          <View style={styles.textBoxButton}>
+            <TextInput
+              multiline
+              style={styles.textBox}
+              placeholder={`Enter ${interactionType}..`}
+              value={userCode}
+              onChangeText={(text) => {
+                setUserCode(text);
+              }}
+            />
+            {endingMessage === "" && (
+              <TouchableOpacity
+                onPress={handleEndingSubmit}
+                style={styles.button}
+              >
+                <Text style={styles.buttonText}>
+                  {"Submit " + interactionType}
+                </Text>
+              </TouchableOpacity>
             )}
 
-            <View style={styles.contentView}>
-              <Text styles={styles.messageText}>{endingMessage}</Text>
-            </View>
-            
-      </View>
-    )
+            {endingMessage !== "" && (
+              <TouchableOpacity
+                onPress={() => setEndingMessage("")}
+                style={styles.button}
+              >
+                <Text style={styles.buttonText}>Try Again</Text>
+              </TouchableOpacity>
+            )}
+          </View>
+        )}
 
+        <View style={styles.contentView}>
+          <Text styles={styles.messageText}>{endingMessage}</Text>
+        </View>
+      </View>
+    );
   } else {
     return (
       <Pressable style={styles.standardView} onPress={Keyboard.dismiss}>
@@ -378,10 +387,12 @@ export default function Index() {
               <View style={styles.contentView}>
                 <Text>
                   {
-                    "Hint: Input observations as numbers (11, 12, etc.). \nInput combinations using \"+\" (11 + 12)"
+                    'Hint: Input observations as numbers (11, 12, etc.). \nInput combinations using "+" (11 + 12)'
                   }
                 </Text>
-                <Text style={{fontWeight: "bold"}}>Combinations can be made with up to 4 observations.</Text>
+                <Text style={{ fontWeight: "bold" }}>
+                  Combinations can be made with up to 4 observations.
+                </Text>
               </View>
             )}
 
