@@ -45,6 +45,7 @@ export default function Index() {
 
   // configure audio settings
   const [SfxPlayer, setSfxPlayer] = useState();
+  const [bgMusicPlayer, setBgMusicPlayer] = useState();
 
   // Modal for prior observations
   const [modalVisible, setModalVisible] = useState(false);
@@ -86,6 +87,42 @@ export default function Index() {
         }
       : undefined;
   }, [SfxPlayer]);
+
+  async function playBgMusic(bgMusicName) {
+    const musicPlayer = new Audio.Sound();
+    Audio.setAudioModeAsync({
+      playsInSilentModeIOS: true,
+      staysActiveInBackground: false,
+    });
+
+    bgMusic = {
+      "level-1-background": require("../assets/sounds/level-1-background.mp3"),
+      "level-1-trimmed": require("../assets/sounds/level-1-trimmed.mov"),
+    };
+
+    soundfile = bgMusic[bgMusicName];
+    if (bgMusicName === "") {
+      return;
+    } else if (soundfile != undefined) {
+      await musicPlayer.loadAsync(soundfile);
+      console.log("Playing background music " + bgMusicName);
+      setBgMusicPlayer(musicPlayer);
+
+      await musicPlayer.setIsLoopingAsync(true);
+      await musicPlayer.playAsync();
+    } else {
+      console.log("invalid bg music name");
+    }
+  }
+
+  useEffect(() => {
+    return bgMusicPlayer
+      ? () => {
+          bgMusicPlayer.unloadAsync();
+          console.log("Unloading Bg Music");
+        }
+      : undefined;
+  }, [bgMusicPlayer]);
 
   const handleSubmission = () => {
     //process user input for JSON lookup
@@ -150,6 +187,7 @@ export default function Index() {
       }
 
       playSound(resources[input].sound);
+      playBgMusic(resources[input].bgMusic);
       setMessage(resources[input].message);
       setCardTitle(resources[input].title);
 
@@ -281,7 +319,6 @@ export default function Index() {
             onPress={() => {
               if (userInput.toLowerCase() == "level 1") {
                 setBeginGame(true);
-                playSound("StartupSound");
                 handleSubmission();
                 setUserLvlProgress(["Level 1"]);
               }

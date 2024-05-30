@@ -11,6 +11,7 @@ let resources = {
     title: "Level 1: The Rooftop",
     message:
       "Why am I on top of the roof... my head hurts... \n\n(Get 11, 12, 13, 14)",
+    bgMusic: "level-1-background",
   },
   11: {
     title: "Lock",
