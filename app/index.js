@@ -35,6 +35,8 @@ export default function Index() {
   let [interactionType, setInteractionType] = useState("");
   let [requiredCode, setRequiredCode] = useState("");
   let [userCode, setUserCode] = useState("");
+  let [showEnding, setShowEnding] = useState(false);
+  let [endingMessage, setEndingMessage] = useState("");
 
   let [userLvlProgress, setUserLvlProgress] = useState([]);
   let [userSelectedLvlButton, setUserSelectedLvlButton] = useState(0);
@@ -93,7 +95,7 @@ export default function Index() {
     });
     input = input.toString();
 
-    if (resources[input] !== undefined) {
+    if (resources[input] !== undefined && input !== "ending") {
       //process user input
 
       let lvlNum = input.charAt(0); // for observations, first char is always a number
@@ -175,7 +177,11 @@ export default function Index() {
 
         setFoundItems(tempList);
       }
-    } else {
+    } else if (userInput.toLowerCase() === "ending") {
+      setShowEnding(true);
+      setInteractionType(resources["ending"]["interaction"])
+    } 
+    else {
       playSound("InvalidCombo");
       setMessage("This combination doesn't seem to work...");
     }
@@ -215,6 +221,14 @@ export default function Index() {
       }
     }
   };
+
+  const handleEndingSubmit = () => {
+    if (userCode.toLowerCase().includes("janitor")) {
+      setEndingMessage("With your overwhelming evidence, the police officers lower their guns and thank you for your lead about the real culprit. As the officers rush pass you, you wonder how they're going to go up the building...")
+    } else {
+      setEndingMessage("Nothing you say convinces the police. You are forced the ground. Your life will never be the same again...")
+    }
+  }
 
   const renderFoundAsButton = ({ item }) => {
     return (
@@ -271,6 +285,56 @@ export default function Index() {
         </View>
       </View>
     );
+  } 
+  else if (showEnding) {
+    return (
+      <View style={styles.standardView}>
+            <View style={styles.contentView}>
+              <Text style={styles.title}>{resources["ending"]["title"]}</Text>
+              <Text style={styles.messageText}>{resources["ending"]["message"]}</Text>
+            </View>
+
+            {interactionType !== "" && (
+              <View style={styles.textBoxButton}>
+                <TextInput
+                  multiline
+                  style={styles.textBox}
+                  placeholder={`Enter ${interactionType}..`}
+                  value={userCode}
+                  onChangeText={(text) => {
+                    setUserCode(text);
+                  }}
+                />
+                {endingMessage === "" && <TouchableOpacity
+                  onPress={handleEndingSubmit}
+                  style={styles.button}
+                >
+                  <Text style={styles.buttonText}>
+                    {"Submit " + interactionType}
+                  </Text>
+                </TouchableOpacity>
+                }
+
+                {endingMessage !== "" && <TouchableOpacity
+                  onPress={() => setEndingMessage("")}
+                  style={styles.button}
+                >
+                  <Text style={styles.buttonText}>
+                    Try Again
+                  </Text>
+                </TouchableOpacity>
+                } 
+
+              </View>
+            )}
+
+            <View style={styles.contentView}>
+              <Text styles={styles.messageText}>{endingMessage}</Text>
+            </View>
+            
+      </View>
+    )
+
   } else {
     return (
       <Pressable style={styles.standardView} onPress={Keyboard.dismiss}>

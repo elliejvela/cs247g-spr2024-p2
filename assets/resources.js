@@ -704,6 +704,12 @@ let resources = {
   "535,540": {
     title: "What's that sparkley thing up here?",
     message: "No wonder it caught my eye...\n\n(Get 536)"
+  },
+  "ending": {
+    title: "The Last Observation",
+    message: "Several Police Officers point their gun at you and asks you... \n\n\"Who caused this?\"",
+    interaction: "The Real Culprit",
+    code: "janitor"
   }
 };
 
