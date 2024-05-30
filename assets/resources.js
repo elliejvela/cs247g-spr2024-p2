@@ -15,7 +15,7 @@ let resources = {
   11: {
     title: "Lock",
     message: "The door is locked shut...if only I knew the combination",
-    interaction: "code",
+    interaction: "Combo Lock",
     code: "3617",
     successMessage:
       "To the next floor... (Unlock Level 2)\n\n(Type 'Level 2' in the first text box)",
@@ -466,7 +466,7 @@ let resources = {
     message: "Let's climb down this ladder and see what's next \n\n(Get 429)",
   },
   level5: {
-    title: "Level 5",
+    title: "Level 5: Ground Floor",
     message:
       "I made it to the ground floor, almost out...\n\n(Get 51, 52, 53, 54, 55, 56, 57, 58, 59, 510)",
   },
@@ -483,7 +483,7 @@ let resources = {
   53: {
     title: "Front Desk",
     message:
-      "It's the front desk, why's there no one here...\n\n(Get 511, 512, 513)",
+      "It's the front desk, why's there no one here...\n\n(Get 511, 512, 513, 517)",
   },
   54: {
     title: "Filing Cabinets",
@@ -501,11 +501,11 @@ let resources = {
       "Don't tell me that the plants are producing this rancid smell\n\n(Get 523)",
   },
   57: {
-    title: "Door 1 (Locked)",
+    title: "Right Door 1 (Locked)",
     message: "It's a locked door. I don't think I can break it open.",
   },
   58: {
-    title: "Door 2 (Locked)",
+    title: "Left Door 2 (Locked)",
     message: "It's a locked door. I don't think I can open it.",
   },
   59: {
@@ -523,12 +523,14 @@ let resources = {
   },
   512: {
     title: "Post - it note on front desk",
-    message: "It looks like a reminder, let's take a look at what's on it",
+    message: "It looks like a reminder...\n\n\"Note: Remember to get ready for the festival. The temporary code for the safe in storage is the date of the art festival\"",
   },
   513: {
     title: "Safe",
-    message:
-      "A locked safe, looks like I'll need a 4 digit code\n\nGet(515, 521)",
+    message: "A locked safe, looks like I'll need a 4 digit code\n\n(Get 515)",
+    interaction: "4-Digit Lock Code",
+    code: "2012",
+    successMessage: "Got the safe open!\n\n(Get 514)"
   },
   514: {
     title: "Opened safe",
@@ -537,7 +539,7 @@ let resources = {
   },
   515: {
     title: "Note on Safe",
-    message: "It's a note on the safe. What year could that be...?",
+    message: "It's a note on the safe... \n\n\"Note: For new employees, the code is the year where there was that big scandal. Boss want to make sure we always remember to avoid that again. Surprised they're doing the art festival after what happened that day...\"",
   },
   516: {
     title: "Ballpoint Pen",
@@ -567,7 +569,7 @@ let resources = {
       "There's some spare change, wonder if it's enough to get a drink from the vending machine",
   },
   522: {
-    title: "Newspaper (with ripped corner)",
+    title: "Newspaper with a ripped corner",
     message:
       "It's a newspaper about a disaster that happened at Fern apartments. But there's no date. Did someone rip that portion out on purpose?",
   },
@@ -589,7 +591,7 @@ let resources = {
   },
   527: {
     title: "Anniversary Book",
-    message: "An staff anniversary book for Fern Apartments",
+    message: "An staff anniversary book for Fern Apartments\n\n(Get 528)",
   },
   528: {
     title: "Bookmarked Page",
@@ -620,7 +622,7 @@ let resources = {
   534: {
     title: "Side Storage Room",
     message:
-      "There a bunch of stuff here, hope they don't mind me using some...\n\n(Get 538, 539, 540, 541, 542, 543, 544)",
+      "There a bunch of stuff here, hope they don't mind me using some...\n\n(Get 535, 538, 539, 540, 541, 542, 543, 544)",
   },
   535: {
     title: "Something High on Top?",
@@ -631,19 +633,21 @@ let resources = {
     message: "A sparkler set, is someone planning a party?",
   },
   537: { title: "Key", message: "A Key, this is probably the spare..." },
-  538: { title: "Tool Kit", message: "It's a tool kit" },
+  538: { title: "Tool Kit", message: "It's a tool kit\n\n(Get 546)" },
   539: {
     title: "Steel Wool",
-    message: "Some steel wool, wonder what I can use it for?",
+    message: "Some steel wool. There's a note warning that it's extremely flammable next to electrical devices...",
   },
   540: { title: "Ladder", message: "Now I can reach the top shelf" },
   541: {
     title: "Art supplies",
-    message: "Wasn't there supposed to be an art festival?",
+    message: "Looks like stuff for the art festival...",
   },
   542: {
     title: "Locked safe in Storage",
     message: "it's the second locked safe, time to find a second code",
+    interaction: "4-digit Code",
+    code: "1207",
     successMessage: "It's unlocked!\n\n(Get 545, 547)",
   },
   543: { title: "Rubbing alcohol", message: "A bottle of rubbing alcohol" },
@@ -651,7 +655,7 @@ let resources = {
   545: {
     title: "Tiny jar of gunpowder",
     message:
-      "it's a tiny jar of gunpowder... it seems to be just enough to cause a small explosion",
+      "it's a tiny jar of gunpowder... it seems to be just enough to cause a small explosion. I'd better use this carefully...",
   },
   546: { title: "Hammer", message: "A hammer from the tool kit" },
   547: {
@@ -665,14 +669,14 @@ let resources = {
   },
   549: {
     title: "Several drink cans",
-    message: "It's not much, but there's a least a couple cans",
+    message: "It's not much, but there's ar least a couple cans",
   },
   550: {
     title: "Door 2 with Destroyed Lock",
     message:
       "... and ignite with the charge from the battery... and the lock's busted. I can open the door now",
   },
-  "55,544": {
+  "55,546": {
     title: "Bashing the Vending Machine",
     message: "Now I have the cans, I can stack these!\n\n(Get 548, 549)",
   },
@@ -680,15 +684,27 @@ let resources = {
     title: "Unlocking the the first door",
     message: "Nice, that worked!\n\n(Get 534)",
   },
+  "57,530": {
+    title: "Trying Key 1 on Door 2",
+    message: "The key doesn't fit..."
+  },
   "58,529": {
     title: "The key doesn't match!",
     message: "This doesn't work...",
   },
-  "58, 524, 541, 547": {
+  "58,530": {
+    title: "An Unexpected Discovery!",
+    message: "The key fits but it's jammed! I need to take a second look at this door..."
+  },
+  "58,524,543,545,549": {
     title: "Blowing up the stubborn door lock",
     message:
-      "The door is slightly opened... now to get out of here\n\n(Get Ending)",
+      "The door opened... now to get out of here\n\n(Get Ending)",
   },
+  "535,540": {
+    title: "What's that sparkley thing up here?",
+    message: "No wonder it caught my eye...\n\n(Get 536)"
+  }
 };
 
 export { resources };

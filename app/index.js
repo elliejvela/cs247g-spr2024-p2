@@ -95,6 +95,53 @@ export default function Index() {
 
     if (resources[input] !== undefined) {
       //process user input
+
+      let lvlNum = input.charAt(0); // for observations, first char is always a number
+      // If it's the next level, add next level to the progress bar
+      if (input.includes("level")) {
+        // the last character will always be a number
+        lvlNum = input.charAt(input.length - 1);
+
+        // Block skipping levels
+
+        if (lvlNum > 1) {
+          // Check if the required card is already used
+          let validPassLevel = false;
+
+          switch(lvlNum) {
+            case '2':
+              validPassLevel = true;
+              break; // TODO: Get feedback from team if we want to add a card to Level 1 that is the success card check, Level 2/3/4 all have a success card
+            case '3':
+              validPassLevel = foundItems[1].find(ele => ele.id === "218") !== undefined;
+              break;
+            case '4':
+              validPassLevel = foundItems[2].find(ele => ele.id === "321") !== undefined;
+              break;
+            case '5':
+              validPassLevel = foundItems[3].find(ele => ele.id === "429") !== undefined;
+              break;
+            default:
+              console.log("default case")
+          }
+
+          if (!validPassLevel) {
+            setCardTitle("The Job is Not Done...");
+            setMessage("There are still things to do here...")
+            return;
+          }
+        }
+
+        if (
+          userLvlProgress.find((ele) => ele === "Level " + lvlNum) === undefined
+        ) {
+          let tempList = [...userLvlProgress, `Level ${lvlNum}`];
+          tempList.sort();
+          setUserLvlProgress(tempList);
+          setUserSelectedLvlButton(lvlNum - 1)
+        }
+      }
+
       playSound(resources[input].soundName);
       setMessage(resources[input].message);
       setCardTitle(resources[input].title);
@@ -104,32 +151,22 @@ export default function Index() {
         let interactionType = resources[input].interaction;
 
         setInteractionType(interactionType);
-        setRequiredCode(resources[input][interactionType]);
+        setRequiredCode(resources[input]["code"]);
       }
 
-      let lvlNum = input.charAt(0); // for observations, first char is always a number
-      // If it's the next level, add next level to the progress bar
-      if (input.includes("level")) {
-        // the last character will always be a number
-        lvlNum = input.charAt(input.length - 1);
-
-        if (
-          userLvlProgress.find((ele) => ele === "Level " + lvlNum) === undefined
-        ) {
-          let tempList = [...userLvlProgress, `Level ${lvlNum}`];
-          tempList.sort();
-          setUserLvlProgress(tempList);
-        }
+      // Special interaction for Level 5
+      if (input === "58,530") {
+        resources["58"]["message"] = "I need a different way to open this door..."
+        resources["58"]["code"] = "524,543,545,549";
+        resources["58"]["interaction"] = "Item Combo"
+        resources["58"]["successMessage"] = "The door opened... now to get out of here\n\n(Get Ending)"
       }
-
-      console.log(parseInt);
 
       if (
         foundItems[parseInt(lvlNum) - 1].find((ele) => ele.id === input) ===
         undefined
       ) {
         let tempList = foundItems;
-        console.log(tempList);
 
         tempList[parseInt(lvlNum) - 1].push({
           id: input,
@@ -147,23 +184,31 @@ export default function Index() {
 
   const handleCodeSubmission = () => {
     // valid userInputs for code submission
-    let validUserInputs = ["11"];
+    let validUserInputs = ["11", "513", "542", "58"];
+
+    let code = userCode.toLowerCase().replaceAll(" ", "");
+    code = code.split("+");
+    // this sorts a string of numbers in numerical order rather than alphabetical order
+    code.sort(function (a, b) {
+      return a - b;
+    });
+    code = code.toString();
 
     if (
       validUserInputs.find((ele) => ele === userInput) !== undefined &&
-      userCode === requiredCode
+      code === requiredCode
     ) {
-      console.log(userInput);
 
       setMessage(resources[userInput].successMessage);
       setRequiredCode("");
       setInteractionType("");
+      setUserCode("");
     } else {
       if (validUserInputs.find((ele) => ele === userInput) === undefined) {
         setMessage(
           "I really should be looking at the right thing before inputing the code..."
         );
-      } else if (userCode !== requiredCode) {
+      } else if (code !== requiredCode) {
         setMessage("This seems not correct...");
       } else {
         setMessage("This doesn't seem to work, I should try again...");
@@ -269,9 +314,10 @@ export default function Index() {
               <View style={styles.contentView}>
                 <Text>
                   {
-                    "Hint: Input observations as numbers (11, 12, etc.). \nInput combinations as lower number + higher numbers (11 + 12) \nCombinations can be made with up to 3 observations."
+                    "Hint: Input observations as numbers (11, 12, etc.). \nInput combinations using \"+\" (11 + 12)"
                   }
                 </Text>
+                <Text style={{fontWeight: "bold"}}>Combinations can be made with up to 4 observations.</Text>
               </View>
             )}
 
