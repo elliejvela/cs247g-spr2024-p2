@@ -52,7 +52,6 @@ export default function Index() {
 
   // play sound effects
   async function playSound(soundName) {
-    console.log("playSound function");
     const SfxPlayer = new Audio.Sound();
     Audio.setAudioModeAsync({
       playsInSilentModeIOS: true,
@@ -66,9 +65,7 @@ export default function Index() {
     };
 
     soundfile = level_1_sound_effects[soundName];
-    console.log("attempting to play sound: " + soundName);
     if (soundName === "") {
-      console.log("empty sound name");
       return;
     } else if (soundfile != undefined) {
       await SfxPlayer.loadAsync(soundfile);
@@ -152,7 +149,7 @@ export default function Index() {
         }
       }
 
-      playSound(resources[input].soundName);
+      playSound(resources[input].sound);
       setMessage(resources[input].message);
       setCardTitle(resources[input].title);
 

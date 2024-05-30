@@ -116,7 +116,7 @@ let resources = {
   218: {
     title: "A Way Up",
     message: "Let's see where this takes me... \n\n(Unlock Level 3)",
-    soundName: "VentCrawl",
+    sound: "VentCrawl",
   },
   "22,23": {
     title: "Breaking the shelf",
@@ -523,14 +523,15 @@ let resources = {
   },
   512: {
     title: "Post - it note on front desk",
-    message: "It looks like a reminder...\n\n\"Note: Remember to get ready for the festival. The temporary code for the safe in storage is the date of the art festival\"",
+    message:
+      'It looks like a reminder...\n\n"Note: Remember to get ready for the festival. The temporary code for the safe in storage is the date of the art festival"',
   },
   513: {
     title: "Safe",
     message: "A locked safe, looks like I'll need a 4 digit code\n\n(Get 515)",
     interaction: "4-Digit Lock Code",
     code: "2012",
-    successMessage: "Got the safe open!\n\n(Get 514)"
+    successMessage: "Got the safe open!\n\n(Get 514)",
   },
   514: {
     title: "Opened safe",
@@ -539,7 +540,8 @@ let resources = {
   },
   515: {
     title: "Note on Safe",
-    message: "It's a note on the safe... \n\n\"Note: For new employees, the code is the year where there was that big scandal. Boss want to make sure we always remember to avoid that again. Surprised they're doing the art festival after what happened that day...\"",
+    message:
+      "It's a note on the safe... \n\n\"Note: For new employees, the code is the year where there was that big scandal. Boss want to make sure we always remember to avoid that again. Surprised they're doing the art festival after what happened that day...\"",
   },
   516: {
     title: "Ballpoint Pen",
@@ -636,7 +638,8 @@ let resources = {
   538: { title: "Tool Kit", message: "It's a tool kit\n\n(Get 546)" },
   539: {
     title: "Steel Wool",
-    message: "Some steel wool. There's a note warning that it's extremely flammable next to electrical devices...",
+    message:
+      "Some steel wool. There's a note warning that it's extremely flammable next to electrical devices...",
   },
   540: { title: "Ladder", message: "Now I can reach the top shelf" },
   541: {
@@ -686,7 +689,7 @@ let resources = {
   },
   "57,530": {
     title: "Trying Key 1 on Door 2",
-    message: "The key doesn't fit..."
+    message: "The key doesn't fit...",
   },
   "58,529": {
     title: "The key doesn't match!",
@@ -694,23 +697,24 @@ let resources = {
   },
   "58,530": {
     title: "An Unexpected Discovery!",
-    message: "The key fits but it's jammed! I need to take a second look at this door..."
+    message:
+      "The key fits but it's jammed! I need to take a second look at this door...",
   },
   "58,524,543,545,549": {
     title: "Blowing up the stubborn door lock",
-    message:
-      "The door opened... now to get out of here\n\n(Get Ending)",
+    message: "The door opened... now to get out of here\n\n(Get Ending)",
   },
   "535,540": {
     title: "What's that sparkley thing up here?",
-    message: "No wonder it caught my eye...\n\n(Get 536)"
+    message: "No wonder it caught my eye...\n\n(Get 536)",
   },
-  "ending": {
+  ending: {
     title: "The Last Observation",
-    message: "Several Police Officers point their gun at you and asks you... \n\n\"Who caused this?\"",
+    message:
+      'Several Police Officers point their gun at you and asks you... \n\n"Who caused this?"',
     interaction: "The Real Culprit",
-    code: "janitor"
-  }
+    code: "janitor",
+  },
 };
 
 export { resources };
