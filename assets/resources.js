@@ -521,7 +521,7 @@ let resources = {
   510: {
     title: "Lounge area",
     message:
-      "This is where people would sit down and wait...\n\n(Get 531, 532, 533)",
+      "Looks like there still a few things left here...\n\n(Get 531, 532, 533)",
   },
   511: {
     title: "Left drawer (Drawer 1)",
@@ -572,14 +572,14 @@ let resources = {
       "It's a flashlight, but it won't turn on. Is the battery dead?\n\n(Get 524)",
   },
   521: {
-    title: "spare change",
+    title: "Spare change",
     message:
       "There's some spare change, wonder if it's enough to get a drink from the vending machine",
   },
   522: {
-    title: "Newspaper with a ripped corner",
+    title: "Recent Newspaper Heading",
     message:
-      "It's a newspaper about a disaster that happened at Fern apartments. But there's no date. Did someone rip that portion out on purpose?",
+      "The headline is: [...ber 5th] After healing from that unsolved death at \"Fern Apartments\" 5 years ago, the Art Festival is finally back for festivities! \n\n The date is too smudged to make out the month.",
   },
   523: {
     title: "Old Janitor shirt",
@@ -590,8 +590,8 @@ let resources = {
     message: "Looks like I managed to get the battery out of the flashlight",
   },
   525: {
-    title: "Weird pattern on the Wall",
-    message: "There's a weird pattern, wonder if it'll be used for anything",
+    title: "Restroom Wall",
+    message: "Looks like there was a fight here...No wonder there's a cleaning cart here as well...",
   },
   526: {
     title: "Cleaning Cart",
@@ -599,7 +599,7 @@ let resources = {
   },
   527: {
     title: "Anniversary Book",
-    message: "An staff anniversary book for Fern Apartments\n\n(Get 528)",
+    message: "A staff anniversary book for Fern Apartments\n\n(Get 528)",
   },
   528: {
     title: "Bookmarked Page",
@@ -638,14 +638,14 @@ let resources = {
   },
   536: {
     title: "Sparkler Set",
-    message: "A sparkler set, is someone planning a party?",
+    message: "A sparkler set...? It's only enough for some lights, not really useful...",
   },
   537: { title: "Key", message: "A Key, this is probably the spare..." },
   538: { title: "Tool Kit", message: "It's a tool kit\n\n(Get 546)" },
   539: {
     title: "Steel Wool",
     message:
-      "Some steel wool. There's a note warning that it's extremely flammable next to electrical devices...",
+      "Some steel wool. There's a note warning that it'll ignite next to electricity",
   },
   540: { title: "Ladder", message: "Now I can reach the top shelf" },
   541: {
@@ -659,7 +659,7 @@ let resources = {
     code: "1207",
     successMessage: "It's unlocked!\n\n(Get 545, 547)",
   },
-  543: { title: "Rubbing alcohol", message: "A bottle of rubbing alcohol" },
+  543: { title: "Rubbing alcohol", message: "A bottle of rubbing alcohol, it's extremely flammable. " },
   544: { title: "Boxes", message: "Some empty boxes" },
   545: {
     title: "Tiny jar of gunpowder",
@@ -670,7 +670,7 @@ let resources = {
   547: {
     title: "Single match stick",
     message:
-      "Where's the rest of the matches and box... Can I even light this?",
+      "There's no way to light this... If I want to start a fire, then I need to try another way without this match stick...",
   },
   548: {
     title: "Broken Vending machine",
@@ -678,7 +678,7 @@ let resources = {
   },
   549: {
     title: "Several drink cans",
-    message: "It's not much, but there's ar least a couple cans",
+    message: "It's not much, but there's are least a couple cans",
   },
   550: {
     title: "Door 2 with Destroyed Lock",
@@ -687,7 +687,7 @@ let resources = {
   },
   "55,521": {
     title: 'Not enough money',
-    message: "There wasn't enough change..."
+    message: "There wasn't enough change for even the cheapest drink..."
   },
   "55,546": {
     title: "Bashing the Vending Machine",
@@ -710,9 +710,49 @@ let resources = {
     message:
       "The key fits but it's jammed! I need to take a second look at this door...",
   },
-  "58,524,543,545,549": {
-    title: "Blowing up the stubborn door lock",
-    message: "The door opened... now to get out of here\n\n(Get Ending)",
+  "58,524": {
+    title: "Would a battery work?",
+    message: "I don't really see how I'd use a battery by itself to bust the handle..."
+  },
+  "524,539": {
+    title: "Fire Warning",
+    message: "I think this will cause a fire, but I'd better not do that until I'm ready to blow the handle of the door off"
+  },
+  "58,524,539": {
+    title: "Not the right position",
+    message: "Lighting the door on fire seems like a good idea, but I'm too close...it'll be dangerous if I light a fire now"
+  },
+  "524,543": {
+    title: "Battery and Alchohol",
+    message: "This doesn't feel right, wasn't there a warning about electricity before...?"
+  },
+  "532,539": {
+    title: "A dead battery doesn't work",
+    message: "Doesn't look like a laptop will ignite the steel wool"
+  },
+  "58,543": {
+    title: "A potential trail",
+    message: "This should be enough to make a trail, but I should only use the alchohol when I'm ready to blow the handle of the door off."
+  },
+  "58,545": {
+    title: "It's not enough",
+    message: "There's no way I'd be able to blow the whole door away with just this little gunpowder. I need to be more intentional about this..."
+  },
+  "58,549": {
+    title: "Stacking cans",
+    message: "It looks like it's just enough to reach the door handle. Let's make sure to include these when I'm ready to blow the handle of the door off."
+  },
+  "58,524,539,543": {
+    title: "A trail to the door",
+    message: "This seems like the path is long enough, just need to find something to make the explosion..."
+  },
+  "58,524,539,543,545": {
+    title: "Not high enough",
+    message: "The handle is still a little high, is there anything I can use to build up to the handle?"
+  },
+  "58,524,539,543,545,549": {
+    title: "Looking good",
+    message: "I think this is everything, time to get out of here... (Input items combo to 58 code)"
   },
   "535,540": {
     title: "What's that sparkley thing up here?",

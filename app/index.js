@@ -210,7 +210,7 @@ export default function Index() {
       // Special interaction for Level 5
       if (input === "58,530") {
         resources["58"]["message"] =
-          "I need a different way to open this door...";
+          "I can't force the door open, my only option is to blow the handle lock off...";
         resources["58"]["code"] = "524,539,543,545,549";
         resources["58"]["interaction"] = "5 - Item Combo";
         resources["58"]["successMessage"] =
