@@ -479,7 +479,7 @@ let resources = {
   51: {
     title: "Elevator",
     message:
-      "Great, it's working, if I need to return to any previous floors, I can",
+      "It's out of service...",
   },
   52: {
     title: "Front Door",
