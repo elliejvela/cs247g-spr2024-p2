@@ -311,6 +311,13 @@ export default function Index() {
       <View style={styles.contentView}>
         <Text style={styles.title}>Descent</Text>
 
+        <Text>You will be inputing card numbers (11, 12), Level Numbers (Level 1), as well as combinations (11+12).</Text>
+        <Text>Card Numbers (Observations) will give more information about the card</Text>
+        <Text>Level Numbers will give information on the Level</Text>
+        <Text>Combinations (Item Combos) may lead to new items</Text>
+
+        <Text>Make sure to read carefully as some clues as hidden in text 😊</Text>
+
         <Text>To start, enter "Level 1" into the text box</Text>
 
         <View style={styles.textBoxButton}>
@@ -356,10 +363,6 @@ export default function Index() {
               placeholder={`Enter ${interactionType}..`}
               value={userCode}
               onChangeText={(text) => {
-                if (interactionType !== "") {
-                  setInteractionType("");
-                }
-
                 setUserCode(text);
               }}
             />
@@ -411,7 +414,7 @@ export default function Index() {
               <TextInput
                 multiline
                 style={styles.textBox}
-                placeholder="Enter Observations..."
+                placeholder="Enter Observations or Combinations... (11, 11+12)"
                 value={userInput}
                 onChangeText={(text) => {
                   if (text === "") {
@@ -420,6 +423,11 @@ export default function Index() {
 
                     setInteractionType("");
                   }
+
+                  if (interactionType !== "") {
+                    setInteractionType("");
+                  }
+
                   setUserInput(text);
                 }}
               />
