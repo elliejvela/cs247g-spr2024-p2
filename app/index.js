@@ -19,7 +19,7 @@ import { Audio } from "expo-av";
 import { resources } from "../assets/resources.js";
 import ItemModal from "../components/Modal.js";
 
-let backgroundImage = require("../assets/images/old_building.png");
+let backgroundImage = require("../assets/images/old_building.png"); // Source: https://i.pinimg.com/originals/f5/69/e2/f569e26c228d92f3c1f46e41fa04528f.jpg
 
 export default function Index() {
   let [beginGame, setBeginGame] = useState(false);
