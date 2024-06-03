@@ -10,7 +10,7 @@ let resources = {
   level1: {
     title: "Level 1: The Rooftop",
     message:
-      "Why am I on top of the roof... my head hurts... There's a door over there, let's take a look...\n\n(Get 11, 12, 13, 14)",
+      "Why am I on top of the roof... my head hurts... There's a door over there, let's take a look...\n\n(Get 1A, 11, 12, 13, 14)",
     bgMusic: "level-1-background",
     sound: "None",
   },
