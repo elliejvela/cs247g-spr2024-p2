@@ -31,7 +31,7 @@ export default function Index() {
   let [requiredCode, setRequiredCode] = useState("");
   let [userCode, setUserCode] = useState("");
   let [showEnding, setShowEnding] = useState(false);
-  let [endingMessage, setEndingMessage] = useState("");
+  let [endingIndex, setEndingIndex] = useState(0);
 
   let [userLvlProgress, setUserLvlProgress] = useState([]);
   let [userSelectedLvlButton, setUserSelectedLvlButton] = useState(0);
@@ -273,18 +273,6 @@ export default function Index() {
     }
   };
 
-  const handleEndingSubmit = () => {
-    if (userCode.toLowerCase().includes("janitor")) {
-      setEndingMessage(
-        "With your overwhelming evidence, the police officers lower their guns and thank you for your lead about the real culprit. As the officers rush pass you, you wonder how they're going to go up the building..."
-      );
-    } else {
-      setEndingMessage(
-        "Nothing you say convinces the police. You are forced the ground. Your life will never be the same again..."
-      );
-    }
-  };
-
   const renderFoundAsButton = ({ item }) => {
     return (
       <TouchableOpacity
@@ -322,7 +310,7 @@ export default function Index() {
         <Text>Combinations (Item Combos) may lead to new items</Text>
 
         <Text>
-          Make sure to read carefully as some clues as hidden in text 😊
+          Make sure to read carefully as some clues are hidden in text 😊
         </Text>
 
         <Text>To start, enter "Level 1" into the text box</Text>
@@ -353,53 +341,110 @@ export default function Index() {
       </View>
     );
   } else if (showEnding) {
-    return (
-      <View style={styles.standardView}>
+    let endingMessages = [
+      {
+        message: `You see a crowd of police officers circled around something, but you don't know what. You walk up to them and ask, 'What's happening,' but none of them turn around. You ask again, this time shouting, but still no one turns. You eventually push through the crowd of officers and see a dead body.\n\nYou look closer, and the body looks strangely familiar...\n\nYou realize the body is on the floor looks familiar. It’s you. `,
+        buttonText: `My Head Hurts...`
+      },
+      {
+        message: `I have been dead this whole time.\n\nI navigated through the building as a ghost.`,
+        buttonText: `My Head Hurts...`
+      },
+      {
+        message: `I remember masked teenagers.\n\nThey were spraying graffiti on the roof.\n\nIt was dark.\n\nI had to stop them.\n\nI ran after them.\n\nI caught one.\n\nHe fell down.\n\nHe stopped moving.\n\nThere's blood.`, 
+        buttonText: `But that can't be...`
+      },
+      {
+        message: `I’m not a murderer.\n\nI have to save him.\n\nWhat do I have?\n\nI have my mop.\n\nI have my cleaning rag.\n\nLet me clean up the blood.`,
+        buttonText: `This isn't me. This isn't me. This isn't me.`
+      },
+      {
+        message: `It’s my son.\n\nIt’s Mitch.\n\nHe’s dead.\n\nWhat have I done.\n\nWithout Mitch, why should I even live.\n\nThe roof.\n\nIt’s pretty high up…\n\nIt’s late.\n\nThe elevator’s broken.\n\nLet’s take the short way down…`,
+        buttonText: `This isn't happening. This isn't real. This is a dream.`
+      },
+      {
+        message: ``,
+        buttonText: `To Mitch,`
+      },
+      {
+        message: ``,
+        buttonText: `I know you'll never read this. But let dad write this.`
+      },
+      {
+        message: ``,
+        buttonText: `I did something I shouldn't have.`
+      },
+      {
+        message: ``,
+        buttonText: `Mitch...`,
+      },
+      {
+        message: ``,
+        buttonText: `Dad's sorry.`
+      },
+      {
+        message: ``,
+        buttonText: `Dad will meet you again. I will meet you again.`
+      },
+      {
+        message: ``,
+        buttonText: `I'm coming.`
+      },
+      {
+        message: ``,
+        buttonText: `Please wait for me.`
+      }
+      
+    ]
+
+    if (endingIndex > 12) {
+      return (
+        <View style={styles.standardView}>
         <View style={styles.contentView}>
-          <Text style={styles.title}>{resources["ending"]["title"]}</Text>
+          <Text style={styles.title}>Descent</Text>
           <Text style={styles.messageText}>
-            {resources["ending"]["message"]}
+            {`I'm falling. Downwards. Descending.\n\nThis is my final Descent.`}
           </Text>
         </View>
 
-        {interactionType !== "" && (
-          <View style={styles.textBoxButton}>
-            <TextInput
-              multiline
-              style={styles.textBox}
-              placeholder={`Enter ${interactionType}..`}
-              value={userCode}
-              onChangeText={(text) => {
-                setUserCode(text);
-              }}
-            />
-            {endingMessage === "" && (
-              <TouchableOpacity
-                onPress={handleEndingSubmit}
-                style={styles.button}
-              >
-                <Text style={styles.buttonText}>
-                  {"Submit " + interactionType}
-                </Text>
-              </TouchableOpacity>
-            )}
-
-            {endingMessage !== "" && (
-              <TouchableOpacity
-                onPress={() => setEndingMessage("")}
-                style={styles.button}
-              >
-                <Text style={styles.buttonText}>Try Again</Text>
-              </TouchableOpacity>
-            )}
-          </View>
-        )}
-
-        <View style={styles.contentView}>
-          <Text styles={styles.messageText}>{endingMessage}</Text>
+        <View style={styles.textBoxButton}>
+        <TouchableOpacity
+          onPress={() => {
+            setShowEnding(false)
+          }}
+          style={styles.button}
+        >
+          <Text style={styles.buttonText}>Review Game</Text>
+        </TouchableOpacity>
         </View>
+        
       </View>
-    );
+      )
+    } else {
+      return (
+        <View style={styles.standardView}>
+          <View style={styles.contentView}>
+            <Text style={styles.title}>The Last Observation</Text>
+            <Text style={styles.messageText}>
+              {endingMessages[endingIndex].message}
+            </Text>
+          </View>
+  
+          <View style={styles.textBoxButton}>
+          {endingIndex < 13 && <TouchableOpacity
+            onPress={() => {
+              setEndingIndex(endingIndex + 1)
+            }}
+            style={styles.button}
+          >
+            <Text style={styles.buttonText}>{endingMessages[endingIndex].buttonText}</Text>
+          </TouchableOpacity>}
+          </View>
+          
+        </View>
+      );
+    }
+    
   } else {
     return (
       <Pressable style={styles.standardView} onPress={Keyboard.dismiss}>
@@ -473,6 +518,7 @@ export default function Index() {
                           : styles.tabButtonNotSelected
                       }
                       onPress={() => setUserSelectedLvlButton(index)}
+                      key={index}
                     >
                       <Text
                         style={

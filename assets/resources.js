@@ -67,7 +67,7 @@ let resources = {
   },
   26: {
     title: "Bent Mop",
-    message: "What the heck happened to this mop? Is that a hint of blood?",
+    message: "This feel really good in my hand. Even though it's bent, I'm sure I can still use it to whack stuff.",
   },
   27: {
     title: "Large Mulch Bags",
@@ -81,12 +81,12 @@ let resources = {
   29: {
     title: "Empty Pots",
     message:
-      "Empty pots...it seems like it's been a while since they were last cared for",
+      "Empty pots...it seems like it's been a while since they were last cared for. Maybe I should.",
   },
   210: {
     title: "Tool Box",
     message:
-      "An old tool box...there's a lock on it, but the drop seems to have messed it up. I wonder if I can't force it open with something...",
+      "An old tool box...there's a lock on it, but the drop seems to have messed it up. I should be able to smash that lock with something...",
   },
   211: {
     title: "Messed Up Rag",
@@ -583,7 +583,7 @@ let resources = {
   },
   523: {
     title: "Old Janitor shirt",
-    message: "An old janitor shirt, this is where the stench is coming from!",
+    message: "An old janitor shirt, I'd wear it if it wasn't so stinky.",
   },
   524: {
     title: "Questionable Battery",
@@ -631,7 +631,7 @@ let resources = {
   534: {
     title: "Side Storage Room",
     message:
-      "There a bunch of stuff here, hope they don't mind me using some...\n\n(Get 535, 538, 539, 540, 541, 542, 543, 544)",
+      "This feels familiar, like I've been here before...\n\n(Get 535, 538, 539, 540, 541, 542, 543, 544)",
   },
   535: {
     title: "Something High on Top?",
@@ -776,9 +776,7 @@ let resources = {
   ending: {
     title: "The Last Observation",
     message:
-      'Several Police Officers point their gun at you and asks you... \n\n"Who caused this?"',
-    interaction: "The Real Culprit",
-    code: "janitor",
+      `You see a crowd of police officers circled around something, but you don't know what. You walk up to them and ask, 'What's happening,' but none of them turn around. You ask again, this time shouting, but still no one turns. You eventually push through the crowd of officers and see a dead body.\n\nYou look closer, and the body looks strangely familiar...\n\nYou realize the body is on the floor looks familiar. It’s you. `,
   },
 };
 
