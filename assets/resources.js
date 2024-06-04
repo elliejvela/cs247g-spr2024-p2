@@ -63,7 +63,7 @@ let resources = {
   25: {
     title: "Cleaning Logs",
     message:
-      "This place used to be cleaned every week...it hasn't been cleaned in over 4 months...",
+      "This place used to be cleaned every week...Looks like one room hasn't been cleaned since 2012...",
   },
   26: {
     title: "Bent Mop",
@@ -579,15 +579,15 @@ let resources = {
   522: {
     title: "Recent Newspaper Heading",
     message:
-      'The headline is: [...ber 5th] After healing from that unsolved death at "Fern Apartments" 5 years ago, the Art Festival is finally back for festivities! \n\n The date is too smudged to make out the month.',
+      'The headline is: [...ber 5th] After healing from that unsolved death at "Fern Apartments" 5 years ago, the Art Festival is coming in 2 days! \n\n The date is too smudged to make out the month.',
   },
   523: {
     title: "Old Janitor shirt",
     message: "An old janitor shirt, I'd wear it if it wasn't so stinky.",
   },
   524: {
-    title: "Questionable Battery",
-    message: "Looks like I managed to get the battery out of the flashlight",
+    title: "Dead Battery",
+    message: "Looks like I managed to get the battery out of the flashlight. Even if it doesn't work on the flashlight, it might still have charge?",
   },
   525: {
     title: "Restroom Wall",

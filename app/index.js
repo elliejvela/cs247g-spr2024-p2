@@ -313,6 +313,10 @@ export default function Index() {
           Make sure to read carefully as some clues are hidden in text 😊
         </Text>
 
+        <Text>
+          Trigger Warning: This game contains content about suicide.
+        </Text>
+
         <Text>To start, enter "Level 1" into the text box</Text>
 
         <View style={styles.textBoxButton}>
