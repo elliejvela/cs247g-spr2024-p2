@@ -497,7 +497,7 @@ export default function Index() {
                   <Text style={styles.buttonText}>Submit</Text>
                 </TouchableOpacity>
               </View>
-              {userInput === "" && (
+              { (userInput === "" || userInput.toLowerCase().startsWith("level")) && (
                 <View style={styles.contentView}>
                   <Text>
                     {

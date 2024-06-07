@@ -20,7 +20,7 @@ let resources = {
     interaction: "Combo Lock",
     code: "3617",
     successMessage:
-      "To the next floor... (Unlock Level 2)\n\n(Type 'Level 2' in the first text box)",
+      "To the next floor... (Unlock Level 2)\n\n(Type 'Level 2' in the first text box)\n\n(Discard Level 1 cards)",
   },
   12: {
     title: "Poster",
@@ -117,7 +117,7 @@ let resources = {
   217: { title: "Broken Shelf", message: "Agh! It wasn't stable enough" },
   218: {
     title: "A Way Up",
-    message: "Let's see where this takes me... \n\n(Unlock Level 3)",
+    message: "Let's see where this takes me... \n\n(Unlock Level 3)\n\n(Discard Level 2 cards)",
     sound: "VentCrawl",
   },
   "22,23": {
@@ -254,7 +254,7 @@ let resources = {
   },
   321: {
     title: "Means of Egress (sheets over railing)",
-    message: "God, am I really doing this?\n\n(Unlock Level 4)",
+    message: "God, am I really doing this?\n\n(Unlock Level 4)\n\n(Discard Level 3 cards)",
   },
   "32,316": {
     title: "Unlocking the Office Door",
@@ -436,7 +436,7 @@ let resources = {
   429: {
     title: "Onto the next level",
     message:
-      "Let's climb down this ladder and see what's next (Unlock Level 5)",
+      "Let's climb down this ladder and see what's next\n\n(Unlock Level 5)\n\n(Discard Level 4 cards)",
   },
   "45,412": {
     title: "Reaching into the maintenance closet...",
